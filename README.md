@@ -1,6 +1,6 @@
 # Backpack
 
-Webpack for backend apps, without fuss.
+Webpack for backend apps, without te fuss.
 
 ## How to use
 
