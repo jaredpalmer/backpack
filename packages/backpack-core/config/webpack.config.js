@@ -4,7 +4,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const config = require('./paths')
 const path = require('path')
 
-module.exports = ({ env }) => ({
+module.exports = {
   target: 'node',
   devtool: 'source-map',
   externals: nodeExternals(),
@@ -24,6 +24,7 @@ module.exports = ({ env }) => ({
   },
   entry: {
     main: [
+      require.resolve('babel-polyfill'),
       `${config.serverSrcPath}/index.js`
     ],
   },
@@ -64,8 +65,8 @@ module.exports = ({ env }) => ({
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
-      '__DEV__': env === 'development'
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      '__DEV__': true
     }),
     new webpack.BannerPlugin({
       raw: true,
@@ -74,4 +75,4 @@ module.exports = ({ env }) => ({
     new FriendlyErrorsWebpackPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-})
+}
