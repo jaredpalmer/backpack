@@ -1,6 +1,6 @@
 # Backpack
 
-[WIP] Webpack your Node.js server without the fuss.
+Webpack for backend apps, without fuss.
 
 ## How to use
 
@@ -20,18 +20,20 @@ and add a script to your package.json like this:
 }
 ```
 
-After that there are just a few conventions:
+After that there are just a few ~~conventions~~ defaults:
 
-- `src/index.js` the main entry of your app.
+- `src/index.js`: the entry of your app.
+
+...actually thats it.
 
 **Backpack comes with the "battery-pack included":**
 
 - Latest ES6 features (including module syntax, async/await, object rest spread)
-- Friendly, human readable error messages
-- TODO: Automatic documentation generator, with JSDoc3, Swagger-JSDoc
-- TODO: Swagger UI
+- SUPER Friendly, human readable error messages
+- Live reload (on saves, add/delete file, etc.)
+- Zero-config, one dependency.
 
-Backpack can be configured to your projects needs. You can modify the underlying Webpack 2 configuration. 
+HOWEVER, you can configure Backpack to your projects needs. You can modify the underlying Webpack 2 configuration. 
 
 ### Custom configuration
 
@@ -46,7 +48,8 @@ module.exports = {
 
 ### Customizing Webpack
 
-In order to extend our usage of webpack, you can define a function that extends its config via `backpack.config.js`.
+[Example](https://github.com/jaredpalmer/backpack/tree/master/packages/backpack-examples/with-custom-webpack-config)  
+To extend webpack, you can define a function that extends its config via `backpack.config.js`.
 
 ```js
 // backpack.config.js
@@ -57,4 +60,21 @@ module.exports = {
     return config
   }
 }
+```
+
+
+### Building for Production
+Add a npm script for the build step:
+```json
+{
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build"
+  }
+}
+```
+Then run the build command and start your app
+```bash
+npm run build
+node ./build/server/main.js   
 ```
