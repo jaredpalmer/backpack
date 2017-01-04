@@ -4,7 +4,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const config = require('./paths')
 const path = require('path')
 
-module.exports = {
+module.exports = (options) => ({
   target: 'node',
   devtool: 'source-map',
   externals: nodeExternals(),
@@ -13,10 +13,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json'],
-    modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+    modules: [options.paths.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
   },
   resolveLoader: {
-    modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+    modules: [options.paths.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
   },
   node: {
     __filename: false,
@@ -25,14 +25,14 @@ module.exports = {
   entry: {
     main: [
       require.resolve('babel-polyfill'),
-      `${config.serverSrcPath}/index.js`
+      `${options.paths.serverSrcPath}/index.js`
     ],
   },
   output: {
-    path: config.serverBuildPath,
+    path: options.paths.serverBuildPath,
     filename: '[name].js',
     sourceMapFilename: '[name].map',
-    publicPath: config.publicPath,
+    publicPath: options.paths.publicPath,
     libraryTarget: 'commonjs2'
   },
 
@@ -47,7 +47,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: [
           /node_modules/,
-          config.buildPath
+          options.paths.buildPath
         ],
         options: {
           presets: [
@@ -65,8 +65,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-      '__DEV__': true
+      'process.env.NODE_ENV': JSON.stringify(options.env),
+      '__DEV__': options.env === 'development'
     }),
     new webpack.BannerPlugin({
       raw: true,
@@ -75,4 +75,4 @@ module.exports = {
     new FriendlyErrorsWebpackPlugin(),
     new webpack.NoErrorsPlugin()
   ]
-}
+})

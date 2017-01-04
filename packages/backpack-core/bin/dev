@@ -1,11 +1,25 @@
 #! /usr/bin/env node
 const webpack = require('webpack')
-const serverConfig = require('../config/webpack.config')
 const chokidar = require('chokidar')
 const nodemon = require('nodemon')
-const { serverSrcPath } = require('../config/paths')
+const paths = require('../config/paths')
 const once = require('ramda').once
+const defaultConfig = require('../config/webpack.config')
 const path = require('path')
+
+const customConfig = require(path.resolve('backpack.config.js')) || {}
+const options = {
+  env: 'development',
+  paths: Object.assign({}, paths, customConfig.paths || {})
+}
+
+let serverConfig
+if (customConfig.webpack) {
+  serverConfig = customConfig.webpack(defaultConfig(options), { env: 'development' })
+} else {
+  console.log('no custom config file found')
+  serverConfig = defaultConfig(options)
+}
 
 process.on('SIGINT', process.exit)
 
@@ -24,7 +38,7 @@ const compileServer = () => serverCompiler.run(() => undefined)
 
 const startServerOnce = once(() => startServer())
 
-const watcher = chokidar.watch([serverSrcPath])
+const watcher = chokidar.watch([options.paths.serverSrcPath])
 
 watcher.on('ready', () => {
   watcher

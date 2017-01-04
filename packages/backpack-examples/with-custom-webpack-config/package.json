@@ -1,8 +1,8 @@
 {
-  "name": "backpack-examples-basic",
+  "name": "backpack-examples-with-custom-webpack-config",
   "version": "0.0.1",
   "scripts": {
-    "start": "backpack dev",
+    "start": "backpack dev backpack.config.js",
     "build": "backpack build"
   },
   "license": "MIT",
