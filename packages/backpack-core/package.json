@@ -1,0 +1,26 @@
+{
+  "name": "backpack-core",
+  "version": "0.0.1",
+  "description": "Make Node.js API's great again.",
+  "author": "@jaredpalmer",
+  "license": "MIT",
+  "bin": {
+    "backpack": "./bin/backpack"
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-env": "^1.1.4",
+    "chokidar": "^1.6.1",
+    "cross-spawn": "^5.0.1",
+    "friendly-errors-webpack-plugin": "^1.1.2",
+    "nodemon": "^1.11.0",
+    "ramda": "^0.23.0",
+    "source-map-support": "^0.4.8",
+    "webpack": "2.2.0-rc.3",
+    "webpack-node-externals": "^1.5.4"
+  }
+}

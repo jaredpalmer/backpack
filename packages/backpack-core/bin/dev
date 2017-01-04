@@ -1,0 +1,43 @@
+#! /usr/bin/env node
+const webpack = require('webpack')
+const serverConfig = require('../config/webpack.config')
+const chokidar = require('chokidar')
+const nodemon = require('nodemon')
+const { serverSrcPath } = require('../config/paths')
+const once = require('ramda').once
+const path = require('path')
+
+process.on('SIGINT', process.exit)
+
+let serverCompiler
+
+const startServer = () => {
+  const serverPaths = Object
+    .keys(serverCompiler.options.entry)
+    .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
+  const mainPath = path.join(serverCompiler.options.output.path, 'main.js')
+  nodemon({ script: mainPath, watch: serverPaths, flags: [] })
+    .on('quit', process.exit)
+}
+
+const compileServer = () => serverCompiler.run(() => undefined)
+
+const startServerOnce = once(() => startServer())
+
+const watcher = chokidar.watch([serverSrcPath])
+
+watcher.on('ready', () => {
+  watcher
+    .on('add', compileServer)
+    .on('addDir', compileServer)
+    .on('change', compileServer)
+    .on('unlink', compileServer)
+    .on('unlinkDir', compileServer)
+})
+
+serverCompiler = webpack(serverConfig, (err, stats) => {
+  if (err) return
+  startServerOnce()
+})
+
+

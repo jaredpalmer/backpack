@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+const path = require('path')
+const spawn = require('cross-spawn')
+const pkg = require('../package.json')
+
+const defaultCommand = 'dev'
+const commands = new Set([
+  'init',
+  'build',
+  'start',
+  defaultCommand
+])
+
+let cmd = process.argv[2]
+let args
+
+if (new Set(['--version', '-v']).has(cmd)) {
+  console.log('backpack v' + pkg.version)
+  process.exit(0)
+}
+
+if (new Set(['--help', '-h']).has(cmd)) {
+  console.log(`
+    Usage
+      $ backpack <command>
+    Available commands
+      ${Array.from(commands).join(', ')}
+    For more information run a command with the --help flag
+      $ next init --help
+  `)
+  process.exit(0)
+}
+
+if (commands.has(cmd)) {
+  args = process.argv.slice(3)
+} else {
+  cmd = defaultCommand
+  args = process.argv.slice(2)
+}
+
+const bin = path.resolve(path.join(__dirname, cmd))
+
+const startProcess = () => {
+  const proc = spawn(bin, args, { stdio: 'inherit'})
+  proc.on('close', (code) => process.exit(code))
+  proc.on('error', (err) => {
+    console.error(err)
+    process.exit(1)
+  })
+  return proc
+}
+
+const proc = startProcess()

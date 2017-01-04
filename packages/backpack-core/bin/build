@@ -1,0 +1,10 @@
+#! /usr/bin/env node
+const webpack = require('webpack')
+const serverConfig = require('../config/webpack.config')
+
+process.on('SIGINT', process.exit)
+
+const serverCompiler = webpack(serverConfig)
+const compileServer = () => serverCompiler.run(() => undefined)
+
+compileServer()
