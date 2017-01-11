@@ -13,10 +13,10 @@ module.exports = (options) => ({
   },
   resolve: {
     extensions: ['.js', '.json'],
-    modules: [options.paths.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+    modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
   },
   resolveLoader: {
-    modules: [options.paths.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+    modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
   },
   node: {
     __filename: false,
@@ -25,14 +25,14 @@ module.exports = (options) => ({
   entry: {
     main: [
       require.resolve('babel-polyfill'),
-      `${options.paths.serverSrcPath}/index.js`
+      `${config.serverSrcPath}/index.js`
     ],
   },
   output: {
-    path: options.paths.serverBuildPath,
+    path: config.serverBuildPath,
     filename: '[name].js',
     sourceMapFilename: '[name].map',
-    publicPath: options.paths.publicPath,
+    publicPath: config.publicPath,
     libraryTarget: 'commonjs2'
   },
 
@@ -47,7 +47,7 @@ module.exports = (options) => ({
         loader: 'babel-loader',
         exclude: [
           /node_modules/,
-          options.paths.buildPath
+          config.buildPath
         ],
         options: {
           presets: [

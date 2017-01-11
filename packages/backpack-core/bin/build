@@ -1,6 +1,26 @@
 #! /usr/bin/env node
 const webpack = require('webpack')
-const serverConfig = require('../config/webpack.config')
+const defaultConfig = require('../config/webpack.config')
+const path = require('path')
+const fs = require('fs')
+
+process.on('SIGINT', process.exit)
+
+const options = {
+  env: 'production'
+}
+
+const configPath = path.resolve('backpack.config.js')
+let userConfig = {}
+
+if (fs.existsSync(configPath)) {
+  const userConfigModule = require(configPath)
+  userConfig = userConfigModule.default || userConfigModule
+}
+
+const serverConfig = userConfig.webpack
+      ? userConfig.webpack(defaultConfig(options), options)
+      : defaultConfig(options)
 
 process.on('SIGINT', process.exit)
 

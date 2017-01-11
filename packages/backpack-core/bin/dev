@@ -6,20 +6,23 @@ const paths = require('../config/paths')
 const once = require('ramda').once
 const defaultConfig = require('../config/webpack.config')
 const path = require('path')
+const fs = require('fs')
 
-const customConfig = require(path.resolve('backpack.config.js')) || {}
 const options = {
-  env: 'development',
-  paths: Object.assign({}, paths, customConfig.paths || {})
+  env: 'development'
 }
 
-let serverConfig
-if (customConfig.webpack) {
-  serverConfig = customConfig.webpack(defaultConfig(options), { env: 'development' })
-} else {
-  console.log('no custom config file found')
-  serverConfig = defaultConfig(options)
+const configPath = path.resolve('backpack.config.js')
+let userConfig = {}
+
+if (fs.existsSync(configPath)) {
+  const userConfigModule = require(configPath)
+  userConfig = userConfigModule.default || userConfigModule
 }
+
+const serverConfig = userConfig.webpack
+      ? userConfig.webpack(defaultConfig(options), options)
+      : defaultConfig(options)
 
 process.on('SIGINT', process.exit)
 
@@ -38,7 +41,7 @@ const compileServer = () => serverCompiler.run(() => undefined)
 
 const startServerOnce = once(() => startServer())
 
-const watcher = chokidar.watch([options.paths.serverSrcPath])
+const watcher = chokidar.watch([paths.serverSrcPath])
 
 watcher.on('ready', () => {
   watcher
