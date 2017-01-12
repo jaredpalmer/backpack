@@ -2,12 +2,14 @@
 
 <strong>Build better backends with Webpack.</strong>
 
+Backpack is minimalistic build system for Node.js. Inspired by Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app), Zeit's [Next.js](https://github.com/facebookincubator/create-react-app), and Remy's [Nodemon](https://github.com/remy/nodemon), Backpack let's you create modern Node.js apps and services with zero configuration. Backpack handles all the file-watching, live-reloading, and bundling, so you don't have to. It comes with some common ~~conventions~~ defaults (like support for async/await, object rest spread, and class properties), but everything can be customized to fit your project's needs. Best of all, you can easily add backpack to your existing Node.js project with just a single dependency.
+
 ## How to use
 
 Install it:
 
 ```bash
-npm i backpack-core --save
+npm i backpack-core --save-dev
 ```
 
 and add a script to your package.json like this:
