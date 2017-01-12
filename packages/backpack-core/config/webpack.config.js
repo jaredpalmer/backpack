@@ -52,6 +52,9 @@ module.exports = (options) => ({
         options: {
           presets: [
             [require.resolve('babel-preset-env'), {
+              target: {
+                node: 'current'
+              },
               modules: false
             }]
           ],
