@@ -1,6 +1,6 @@
 ![backpack](https://cloud.githubusercontent.com/assets/4060187/21872211/318795e8-d835-11e6-8376-bea370605361.png)
 
-Webpack for backend apps, without the fuss.
+<p style="text-align: center;"><strong>Backend builds with Webpack, no fuss.</strong></p>
 
 ## How to use
 
