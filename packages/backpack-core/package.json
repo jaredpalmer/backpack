@@ -1,6 +1,6 @@
 {
   "name": "backpack-core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Make Node.js API's great again.",
   "author": "@jaredpalmer",
   "license": "MIT",

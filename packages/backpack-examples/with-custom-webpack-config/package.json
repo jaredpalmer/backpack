@@ -1,13 +1,13 @@
 {
   "name": "backpack-examples-with-custom-webpack-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "start": "backpack dev",
     "build": "backpack build"
   },
   "license": "MIT",
   "dependencies": {
-    "backpack-core": "0.0.2",
+    "backpack-core": "0.0.3",
     "express": "^4.14.0"
   }
 }
