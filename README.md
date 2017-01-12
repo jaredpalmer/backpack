@@ -78,3 +78,7 @@ Then run the build command and start your app
 npm run build
 node ./build/server/main.js   
 ```
+
+## Authors
+
+- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - The Palmer Group
