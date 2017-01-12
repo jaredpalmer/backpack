@@ -1,6 +1,6 @@
 ![backpack](https://cloud.githubusercontent.com/assets/4060187/21872211/318795e8-d835-11e6-8376-bea370605361.png)
 
-<p style="text-align: center;"><strong>Backend Webpack made easy.</strong></p>
+<strong>Build better backends with Webpack.</strong>
 
 ## How to use
 
@@ -33,7 +33,7 @@ After that there are just a few ~~conventions~~ defaults:
 - Live reload (on saves, add/delete file, etc.)
 - Zero-config, one dependency.
 
-HOWEVER, you can configure Backpack to your projects needs. You can modify the underlying Webpack 2 configuration. 
+HOWEVER, you can configure Backpack to your project's needs. You can modify the underlying Webpack 2 configuration. 
 
 ### Custom configuration
 
