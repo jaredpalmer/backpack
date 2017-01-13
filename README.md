@@ -116,6 +116,11 @@ We track V8. Since V8 has wide support for ES6 and async and await, we transpile
   Backpack is focused on server-only applications. We've been using it for building out Node.js backends and microservices. Under the hood, Webpack and a few other tools make the magic happen. Hence Backend + Webpack = *Backpack*. 
 </details>
 
+## Inspiration
+- [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
+- [nyt/kyt](https://github.com/NYTimes/kyt)
+- [zeit/next.js](https://github.com/zeit/next.js)
+- [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 
