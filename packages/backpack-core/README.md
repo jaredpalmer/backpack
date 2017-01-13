@@ -1,6 +1,19 @@
 ![backpack](https://cloud.githubusercontent.com/assets/4060187/21872211/318795e8-d835-11e6-8376-bea370605361.png)
 
+![backpack-status](https://david-dm.org/palmerhq/backpack.svg?path=packages/backpack-core)
+[![npm version](https://badge.fury.io/js/backpack-core.svg)](https://badge.fury.io/js/backpack-core) [![Join the chat at https://gitter.im/palmerhq/backpack](https://badges.gitter.im/palmerhq/backpack.svg)](https://gitter.im/palmerhq/backpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Backpack is minimalistic build system for Node.js. Inspired by Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app), Zeit's [Next.js](https://github.com/zeit/next.js), and Remy's [Nodemon](https://github.com/remy/nodemon), Backpack let's you create modern Node.js apps and services with zero configuration. Backpack handles all the file-watching, live-reloading, transpiling, and bundling, so you don't have to. It comes with a few ~~conventions~~ defaults (like support for the latest JavaScript awesomeness (i.e. async/await, object rest spread, and class properties)), but everything can be customized to fit your project's needs. Best of all, you can easily add Backpack to your existing Node.js project with just a single dependency.
+
+**Backpack comes with the "battery-pack included":**
+
+- Latest ES6 features (including module syntax, async/await, object rest spread)
+- SUPER friendly, human readable error messages
+- Live reload (on saves, add/delete file, etc.)
+- Zero-config, one dependency.
+
+HOWEVER, you can configure Backpack to your project's needs. You can [modify the underlying Webpack 2 configuration](#custom-configuration). 
+
 
 ## How to use
 
@@ -26,14 +39,14 @@ After that there are just a few ~~conventions~~ defaults:
 
 ...actually thats it.
 
-**Backpack comes with the "battery-pack included":**
+You can then run your application in development mode:
 
-- Latest ES6 features (including module syntax, async/await, object rest spread)
-- SUPER Friendly, human readable error messages
-- Live reload (on saves, add/delete file, etc.)
-- Zero-config, one dependency.
+```bash
+npm run dev
+```
 
-HOWEVER, you can configure Backpack to your project's needs. You can modify the underlying Webpack 2 configuration. 
+Successful builds will show a console like this. *Note: screenshot taken from running the [basic example](https://github.com/palmerhq/backpack/tree/master/examples/basic)*
+<img src="https://cloud.githubusercontent.com/assets/4060187/21944379/eaba2fde-d9a3-11e6-87aa-f30ddc88b5a8.png" width="600" alt="npm run dev">
 
 ### Custom configuration
 
@@ -80,9 +93,32 @@ Then run the build command and start your app
 
 ```bash
 npm run build
+node ./build/server/main.js   
+```
+
+## CLI Commands
+
+### `backpack dev`
+Runs backpack in development mode.  
+   
+Your code will reload if you make edits.  
+You will see the build errors in the console that look like this.
+
+<img src="https://cloud.githubusercontent.com/assets/4060187/21944372/e2d5e556-d9a3-11e6-9842-0e01ce28ddd6.png" width="600" alt="backpack dev">
+
+### `backpack build`
+Builds the app for production to the `build` folder.  
+It correctly bundles your production mode and optimizes the build for the best performance.
+
+You can run your production application with the following command:
+
+```bash
 node ./build/server/main.js
 ```
 
+Your application is ready to be deployed! 
+
+*Note: Make sure to add the `build` directory to your `.gitignore` to keep compiled code out of your git repository*
 ## FAQ
 
 <details>
@@ -109,13 +145,17 @@ We track V8. Since V8 has wide support for ES6 and async and await, we transpile
   See [this](https://github.com/palmerhq/backpack/blob/master/packages/backpack-core/config/webpack.config.js#L83) and [this](https://github.com/palmerhq/backpack#customizing-webpack)
 </details>
 
-
 <details>
   <summary>Why is it called Backpack?</summary>
   
   Backpack is focused on server-only applications. We've been using it for building out Node.js backends and microservices. Under the hood, Webpack and a few other tools make the magic happen. Hence Backend + Webpack = *Backpack*. 
 </details>
 
+## Inspiration
+- [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
+- [nyt/kyt](https://github.com/NYTimes/kyt)
+- [zeit/next.js](https://github.com/zeit/next.js)
+- [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 
