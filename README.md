@@ -14,6 +14,8 @@ HOWEVER, you can configure Backpack to your project's needs. You can [modify the
 
 ## How to use
 
+[![Join the chat at https://gitter.im/palmerhq/backpack](https://badges.gitter.im/palmerhq/backpack.svg)](https://gitter.im/palmerhq/backpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Install it:
 
 ```bash
