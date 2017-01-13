@@ -93,7 +93,7 @@ npm run build
 node ./build/server/main.js   
 ```
 
-## Commands
+## CLI Commands
 
 ### `backpack dev`
 Runs backpack in development mode.  
