@@ -48,7 +48,8 @@ module.exports = {
 
 ### Customizing Webpack
 
-[Example](https://github.com/jaredpalmer/backpack/tree/master/packages/backpack-examples/with-custom-webpack-config)  
+[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-webpack-config) 
+  
 To extend webpack, you can define a function that extends its config via `backpack.config.js`.
 
 ```js
