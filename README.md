@@ -26,6 +26,15 @@ After that there are just a few ~~conventions~~ defaults:
 
 ...actually thats it.
 
+You can then run your application in development mode:
+
+```bash
+npm run dev
+```
+
+Successful builds will show a console like this. *Note: screenshot taken from running the [basic example](https://github.com/palmerhq/backpack/tree/master/examples/basic)*
+<img src="https://cloud.githubusercontent.com/assets/4060187/21944379/eaba2fde-d9a3-11e6-87aa-f30ddc88b5a8.png" width="600" alt="npm run dev">
+
 **Backpack comes with the "battery-pack included":**
 
 - Latest ES6 features (including module syntax, async/await, object rest spread)
@@ -83,6 +92,29 @@ npm run build
 node ./build/server/main.js   
 ```
 
+## Commands
+
+### `backpack dev`
+Runs backpack in development mode.  
+   
+Your code will reload if you make edits.  
+You will see the build errors in the console that look like this.
+
+<img src="https://cloud.githubusercontent.com/assets/4060187/21944372/e2d5e556-d9a3-11e6-9842-0e01ce28ddd6.png" width="600" alt="backpack dev">
+
+### `backpack build`
+Builds the app for production to the `build` folder.  
+It correctly bundles your production mode and optimizes the build for the best performance.
+
+You can run your production application with the following command:
+
+```bash
+node ./build/server/main.js
+```
+
+Your application is ready to be deployed! 
+
+*Note: Make sure to add the `build` directory to your `.gitignore` to keep compiled code out of your git repository*
 ## FAQ
 
 <details>
