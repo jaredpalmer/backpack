@@ -66,6 +66,7 @@ module.exports = {
 
 ### Building for Production
 Add a npm script for the build step:
+
 ```json
 {
   "scripts": {
@@ -74,11 +75,47 @@ Add a npm script for the build step:
   }
 }
 ```
+
 Then run the build command and start your app
+
 ```bash
 npm run build
 node ./build/server/main.js   
 ```
+
+## FAQ
+
+<details>
+  <summary>Is this like Create-React-App or Next.js?</summary>
+  
+  Yes and No.
+
+Yes in that they will all make your life easier.
+
+No in that it that Backpack is focused on server-only applications. You should use create-react-app or Next.js for your frontend and then build your backend with Backpack.
+</details>
+
+<details>
+  <summary>Can I use this with React to build a universal app?</summary>
+  
+Technically, yes. However, we strongly advise against it at the moment. Backpack handles file-watching and reloading in a way that will make things like webpack-hot-middleware annoying to work with.
+</details>
+
+<details>
+  <summary>What syntactic features are transpiled? How do I change them?</summary>
+  
+We track V8. Since V8 has wide support for ES6 and async and await, we transpile those. Since V8 doesn’t support class decorators, we don’t transpile those.
+  
+  See [this](https://github.com/palmerhq/backpack/blob/master/packages/backpack-core/config/webpack.config.js#L83) and [this](https://github.com/palmerhq/backpack#customizing-webpack)
+</details>
+
+
+<details>
+  <summary>Why is it called Backpack?</summary>
+  
+  Backpack is focused on server-only applications. We've been using it for building out Node.js backends and microservices. Under the hood, Webpack and a few other tools make the magic happen. Hence Backend + Webpack = *Backpack*. 
+</details>
+
 
 ## Authors
 
