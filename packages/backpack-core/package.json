@@ -20,12 +20,11 @@
     "babel-preset-env": "^1.1.4",
     "chokidar": "^1.6.1",
     "cross-spawn": "^5.0.1",
-    "dotenv": "^4.0.0",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
     "source-map-support": "^0.4.8",
-    "webpack": "^2.2.0-rc.3",
+    "webpack": "2.2.0-rc.3",
     "webpack-node-externals": "^1.5.4"
   }
 }
