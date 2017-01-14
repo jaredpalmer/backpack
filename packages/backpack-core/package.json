@@ -1,7 +1,7 @@
 {
   "name": "backpack-core",
-  "version": "0.0.3",
-  "description": "Make Node.js API's great again.",
+  "version": "0.0.4",
+  "description": "Backpack is a minimalistic build system for Node.js",
   "author": "@jaredpalmer",
   "license": "MIT",
   "bin": {
