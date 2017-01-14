@@ -3,6 +3,7 @@ const nodeExternals = require('webpack-node-externals')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const config = require('./paths')
 const path = require('path')
+const babelConfig = require('../babel')
 
 // This is the Webpack configuration.
 // It is focused on developer experience and fast rebuilds.
@@ -74,26 +75,7 @@ module.exports = (options) => ({
           /node_modules/,
           config.buildPath
         ],
-        options: {
-          // babel-preset-env is like autoprefixer, but for javascript.
-          // It efficiently optimizes transpilation based on the specified
-          // target environment. As a default, we set it to target the
-          // user's currently installed Node.js version. We also turn off
-          // ES Modules, and Webpack handles that for us.
-          presets: [
-            [require.resolve('babel-preset-env'), {
-              target: {
-                node: 'current'
-              },
-              modules: false
-            }]
-          ],
-          // These are the default JavaScript language addons.
-          plugins: [
-            require.resolve('babel-plugin-transform-object-rest-spread'),
-            require.resolve('babel-plugin-transform-class-properties')
-          ]
-        }
+        options: babelConfig
       }
     ]
   },
@@ -115,9 +97,10 @@ module.exports = (options) => ({
     // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
     // gives Backpack its human-readable error messages.
     new FriendlyErrorsWebpackPlugin(),
-    // This plugin is awkwardly named. It does not actually swallow errors.
-    // Instead, it just prevents Webpack from printing out compile time
-    // stats to the console.
+    // This plugin is awkwardly named. Use to be called NoErrorsPlugin.
+    // It does not actually swallow errors. Instead, it just prevents
+    // Webpack from printing out compile time stats to the console.
+    // @todo new webpack.NoEmitOnErrorsPlugin()
     new webpack.NoErrorsPlugin()
   ]
 })
