@@ -1,8 +1,8 @@
 {
   "name": "backpack-examples-basic",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
-    "start": "node ./build/server/main.js",
+    "start": "node ./build/main.js",
     "dev": "backpack dev",
     "build": "backpack build",
     "postinstall": "backpack build"
@@ -12,6 +12,6 @@
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "backpack-core": "0.0.4"
+    "backpack-core": "0.0.5"
   }
 }

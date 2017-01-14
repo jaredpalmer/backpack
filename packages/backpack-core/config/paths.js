@@ -9,7 +9,7 @@ module.exports = {
   publicBuildPath,
   publicSrcPath: path.join(rootPath, 'public'),
   serverSrcPath: path.join(rootPath, 'src'),
-  serverBuildPath: path.join(buildPath, 'server'),
+  serverBuildPath: buildPath,
   userNodeModulesPath: path.join(rootPath, 'node_modules'),
   publicPath: '/',
   serverUrl: 'http://localhost:3000'

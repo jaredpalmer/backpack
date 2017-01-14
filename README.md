@@ -93,7 +93,7 @@ Then run the build command and start your app
 
 ```bash
 npm run build
-node ./build/server/main.js   
+node ./build/main.js 
 ```
 
 ## CLI Commands
@@ -113,7 +113,7 @@ It correctly bundles your production mode and optimizes the build for the best p
 You can run your production application with the following command:
 
 ```bash
-node ./build/server/main.js
+node ./build/main.js
 ```
 
 Your application is ready to be deployed! 

@@ -1,8 +1,8 @@
 {
   "name": "backpack-examples-with-jest",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
-    "start": "node ./build/server/main.js",
+    "start": "node ./build/main.js",
     "test": "NODE_ENV=test jest",
     "dev": "backpack dev",
     "build": "backpack build",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "babel-jest": "^18.0.0",
-    "backpack-core": "0.0.4",
+    "backpack-core": "0.0.5",
     "jest-cli": "^18.1.0",
     "supertest": "^2.0.1"
   },
