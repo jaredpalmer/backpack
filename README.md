@@ -37,7 +37,7 @@ After that there are just a few ~~conventions~~ defaults:
 
 - `src/index.js`: the entry of your app.
 
-...actually thats it.
+...actually that's it.
 
 You can then run your application in development mode:
 
