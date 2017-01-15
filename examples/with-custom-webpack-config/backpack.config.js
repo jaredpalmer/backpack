@@ -5,8 +5,7 @@ module.exports = {
 
     // changes the name of the entry point from index -> main.js
     config.entry.main = [
-      'babel-polyfill', // must include first
-      './src/main.js'
+      './services/main.js'
     ]
 
     return config

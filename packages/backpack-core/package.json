@@ -16,7 +16,6 @@
     "babel-plugin-transform-es2015-parameters": "^6.21.0",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.1.4",
     "chokidar": "^1.6.1",
     "cross-spawn": "^5.0.1",

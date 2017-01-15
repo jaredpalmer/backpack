@@ -15,7 +15,4 @@ npm run dev
 ## Idea behind the example
 This demonstrates how to customize the underlying Webpack 2 configuration in a Backpack project using a `backpack.config.js` file. 
 The app itself is exactly the same simple Express.js server in the basic example. However, the entry point to the application has been 
-changed from `./src/index.js` to `./src/main.js`. 
-
-It's important to note that when changing the `config.entry.main`, you must include `babel-polyfill`
-as the first string in the array. Failure to do so, will prevent babel from properly transpiling your code.
+changed from `./src/index.js` to `./services/main.js`.
