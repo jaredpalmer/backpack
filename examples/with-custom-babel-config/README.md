@@ -20,7 +20,7 @@ Be sure to include `backpack-core/babel` in your `.babelrc` as the first item in
 
 ```json
 {
-  presets: [
+  "presets": [
     "backpack-core/babel",
     "..."
   ]
