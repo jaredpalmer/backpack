@@ -43,7 +43,6 @@ module.exports = (options) => ({
   },
   entry: {
     main: [
-      require.resolve('babel-polyfill'),
       `${config.serverSrcPath}/index.js`
     ],
   },
