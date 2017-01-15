@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-with-flowtype",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "start": "node ./build/main.js",
     "flow": "flow",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
-    "backpack-core": "0.0.6",
+    "backpack-core": "0.0.7",
     "flow-bin": "^0.37.4"
   }
 }

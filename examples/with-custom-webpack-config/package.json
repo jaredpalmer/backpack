@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-with-custom-webpack-config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
@@ -12,6 +12,6 @@
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "backpack-core": "0.0.6"
+    "backpack-core": "0.0.7"
   }
 }
