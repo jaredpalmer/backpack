@@ -1,5 +1,5 @@
 {
-  "name": "backpack-examples-basic",
+  "name": "backpack-examples-with-custom-babel-config",
   "version": "0.0.6",
   "scripts": {
     "start": "node ./build/main.js",
@@ -12,6 +12,7 @@
     "express": "^4.14.0"
   },
   "devDependencies": {
+    "babel-preset-stage-0": "^6.16.0",
     "backpack-core": "0.0.6"
   }
 }

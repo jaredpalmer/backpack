@@ -12,8 +12,7 @@ Backpack is minimalistic build system for Node.js. Inspired by Facebook's [creat
 - Live reload (on saves, add/delete file, etc.)
 - Zero-config, one dependency.
 
-HOWEVER, you can configure Backpack to your project's needs. You can [modify the underlying Webpack 2 configuration](#custom-configuration). 
-
+HOWEVER, you can configure Backpack to your project's needs by extending [the underlying Webpack 2 configuration](#custom-configuration). 
 
 ## How to use
 
@@ -50,18 +49,20 @@ Successful builds will show a console like this. *Note: screenshot taken from ru
 
 ### Custom configuration
 
-For custom advanced behavior, you can create a `backpack.config.js` in the root of your project's directory (next to `package.json`). Note: `backpack.config.js` is a regular Node.js module, not a JSON file. It gets used by the Backpack build phase, but does not itself go through babel transformation. So only use JS that's supported by your current Node.js version.
+For custom advanced behavior, you can create a `backpack.config.js` in the root of your project's directory (next to `package.json`).
 
 ```js
 // backpack.config.js
+// IMPORTANT: This file is not going through babel transformation.
+// You can however use the ES2015 features supported by your Node.js version.
 module.exports = {
   /* config options here */
 }
 ```
 
-### Customizing Webpack
+### Customizing webpack config
 
-[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-webpack-config) 
+[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-webpack-config)  
   
 To extend webpack, you can define a function that extends its config via `backpack.config.js`.
 
@@ -76,8 +77,31 @@ module.exports = {
 }
 ```
 
+### Customizing babel config
+
+[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-babel-config)  
+
+To extend our usage of `babel`, you can define a `.babelrc` file at the root of your app. This file is optional.
+
+If found, Backpack will consider it to be the *source of truth*. Thus it must define what Backpack needs as well, which is the `backpack-core/babel` preset.
+
+This is designed so that you are not surprised by modifications we could make to the default `babel` configurations.
+
+Here's an example `.babelrc` file:
+
+```js
+{
+  "presets": [
+    "backpack-core",
+    "stage-0"
+  ],
+}
+```
+
+*Note: This works [exactly like Next.js does](https://github.com/zeit/next.js#customizing-babel-config).*
 
 ### Building for Production
+
 Add a npm script for the build step:
 
 ```json

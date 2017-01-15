@@ -1,0 +1,6 @@
+{
+  "presets": [
+    "backpack-core/babel",
+    "stage-0"
+  ]
+}
