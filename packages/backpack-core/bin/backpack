@@ -26,7 +26,7 @@ if (new Set(['--help', '-h']).has(cmd)) {
     Available commands
       ${Array.from(commands).join(', ')}
     For more information run a command with the --help flag
-      $ next init --help
+      $ backpack --help
   `)
   process.exit(0)
 }
