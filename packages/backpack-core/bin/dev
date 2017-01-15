@@ -32,7 +32,7 @@ const startServer = () => {
   const serverPaths = Object
     .keys(serverCompiler.options.entry)
     .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
-  nodemon({ script: serverPaths[0], watch: serverPaths, flags: [] })
+  nodemon({ script: serverPaths[0], watch: serverPaths, nodeArgs: process.argv.slice(2) })
     .on('quit', process.exit)
 }
 
