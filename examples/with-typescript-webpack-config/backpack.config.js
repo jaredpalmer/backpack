@@ -3,7 +3,7 @@ const webpack = require('webpack')
 module.exports = {
   webpack: (config, options) => {
     config.entry.main = [
-      './services/main.ts'
+      './src/main.ts'
     ]
 
     config.resolve = {
