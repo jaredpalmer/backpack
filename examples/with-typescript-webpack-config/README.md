@@ -1,4 +1,4 @@
-# Custom Webpack Configuration Example
+# Custom Webpack Configuration With Typescript Example
 
 ## How to use
 Download the example (or clone the whole project)[https://github.com/palmerhq/backpack.git]:
