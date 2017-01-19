@@ -164,7 +164,7 @@ Technically, yes. However, we strongly advise against it at the moment. Backpack
 <details>
   <summary>What syntactic features are transpiled? How do I change them?</summary>
   
-We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 doesn’t support and async/await and class properties yet, we transpile those.
+We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 doesn’t support async/await and class properties yet, we transpile those.
   
   See [this](https://github.com/palmerhq/backpack/blob/master/packages/backpack-core/config/webpack.config.js#L83) and [this](https://github.com/palmerhq/backpack#customizing-webpack)
 </details>
