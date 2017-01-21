@@ -92,7 +92,7 @@ Here's an example `.babelrc` file:
 ```js
 {
   "presets": [
-    "backpack-core",
+    "backpack-core/babel",
     "stage-0"
   ],
 }
