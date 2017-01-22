@@ -19,7 +19,7 @@ HOWEVER, you can configure Backpack to your project's needs by extending [the un
 Install it:
 
 ```bash
-npm i backpack-core --save-dev
+npm i backpack-core --save
 ```
 
 and add a script to your package.json like this:
