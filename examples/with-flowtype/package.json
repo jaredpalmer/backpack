@@ -10,11 +10,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
-  },
-  "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "backpack-core": "0.0.7",
+    "express": "^4.14.0",
     "flow-bin": "^0.37.4"
   }
 }
