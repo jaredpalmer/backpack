@@ -47,7 +47,7 @@ module.exports = (options) => {
     // Since we are wrapping our own webpack config, we need to properly resolve
     // Backpack's and the given user's node_modules without conflict.
     resolve: {
-      extensions: ['.js', '.json'],
+      extensions: ['.js', '.ts', '.json'],
       modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
     },
     resolveLoader: {
@@ -59,7 +59,7 @@ module.exports = (options) => {
     },
     entry: {
       main: [
-        `${config.serverSrcPath}/index.js`
+        `${config.serverSrcPath}/index`
       ],
     },
     // This sets the default output file path, name, and compile target
@@ -91,6 +91,12 @@ module.exports = (options) => {
             config.buildPath
           ],
           options: mainBabelOptions
+        },
+        // Process TypeScript with awesome-typescript-loader.
+        {
+          test: /\.tsx?$/,
+          loader: 'awesome-typescript-loader',
+          exclude: /node_modules/
         }
       ]
     },
