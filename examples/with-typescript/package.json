@@ -1,5 +1,5 @@
 {
-  "name": "backpack-examples-with-custom-webpack-config",
+  "name": "backpack-examples-with-typescript",
   "version": "0.0.7",
   "scripts": {
     "start": "node ./build/main.js",
