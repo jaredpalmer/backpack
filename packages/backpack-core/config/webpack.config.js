@@ -38,7 +38,9 @@ module.exports = (options) => {
     // don't want to bundle its node_modules dependencies. This creates an externals
     // function that ignores node_modules when bundling in Webpack.
     // @see https://github.com/liady/webpack-node-externals
-    externals: nodeExternals(),
+    externals: nodeExternals({
+      whitelist: [/^webpack/]
+    }),
     // As of Webpack 2 beta, Webpack provides performance hints.
     // Since we are not targeting a browser, bundle size is not relevant.
     // Additionally, the performance hints clutter up our nice error messages.
@@ -60,6 +62,7 @@ module.exports = (options) => {
     },
     entry: {
       main: [
+        'webpack/hot/poll?1000',
         `${config.serverSrcPath}/index.js`
       ],
     },
@@ -117,7 +120,9 @@ module.exports = (options) => {
       // It does not actually swallow errors. Instead, it just prevents
       // Webpack from printing out compile time stats to the console.
       // @todo new webpack.NoEmitOnErrorsPlugin()
-      new webpack.NoErrorsPlugin()
+      new webpack.NoErrorsPlugin(),
+      // Enable HMR
+      new webpack.HotModuleReplacementPlugin(),
       // Start server on build
       new StartServerPlugin(),
     ]
