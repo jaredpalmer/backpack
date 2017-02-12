@@ -2,6 +2,7 @@ const fs = require('fs')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const StartServerPlugin = require("start-server-webpack-plugin").default
 const config = require('./paths')
 const path = require('path')
 const babelPreset = require('../babel')
@@ -117,6 +118,8 @@ module.exports = (options) => {
       // Webpack from printing out compile time stats to the console.
       // @todo new webpack.NoEmitOnErrorsPlugin()
       new webpack.NoErrorsPlugin()
+      // Start server on build
+      new StartServerPlugin(),
     ]
   }
 }
