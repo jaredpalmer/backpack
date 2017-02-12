@@ -12,15 +12,9 @@
     "backpack": "./bin/backpack"
   },
   "dependencies": {
-    "babel-core": "^6.21.0",
+    "babel-core": "^6.22.0",
     "babel-loader": "^6.2.10",
-    "babel-plugin-transform-async-to-generator": "^6.16.0",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
-    "babel-plugin-transform-es2015-parameters": "^6.21.0",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-env": "^1.1.4",
+    "babel-preset-backpack": "0.0.8",
     "chokidar": "^1.6.1",
     "cross-spawn": "^5.0.1",
     "friendly-errors-webpack-plugin": "^1.1.2",
