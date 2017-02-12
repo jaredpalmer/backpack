@@ -63,7 +63,7 @@ module.exports = (options) => {
     entry: {
       main: [
         'webpack/hot/poll?1000',
-        `${config.serverSrcPath}/index.js`
+        `${path.resolve(__dirname, "../hot")}?${path.resolve(process.cwd(), "src/index.js")}`
       ],
     },
     // This sets the default output file path, name, and compile target
