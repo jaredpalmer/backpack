@@ -107,7 +107,7 @@ module.exports = (options) => {
       // top of each file using the BannerPlugin.
       new webpack.BannerPlugin({
         raw: true,
-        banner: 'require("source-map-support/register")'
+        banner: `require('${require.resolve('source-map-support')}')`
       }),
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
       // gives Backpack its human-readable error messages.
