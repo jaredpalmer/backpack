@@ -61,10 +61,10 @@ module.exports = (options) => {
       __dirname: false
     },
     entry: {
-      main: [
+      main: options.env === 'development' ? [
         'webpack/hot/poll?1000',
-        `${path.resolve(__dirname, "../hot")}?${path.resolve(process.cwd(), "src/index.js")}`
-      ],
+        `${path.resolve(__dirname, "../hot")}?${path.resolve(config.serverSrcPath, "index.js")}`
+      ] : path.resolve(config.serverSrcPath, "index.js"),
     },
     // This sets the default output file path, name, and compile target
     // module type. Since we are focused on Node.js, the libraryTarget
@@ -90,6 +90,7 @@ module.exports = (options) => {
         {
           test: /\.(js|jsx)$/,
           loader: 'babel-loader',
+          // @TODO Change this to include
           exclude: [
             /node_modules/,
             config.buildPath
@@ -122,11 +123,11 @@ module.exports = (options) => {
       // @todo new webpack.NoEmitOnErrorsPlugin()
       new webpack.NoErrorsPlugin(),
       // Enable HMR
-      new webpack.HotModuleReplacementPlugin(),
+      (options.env === 'development') && new webpack.HotModuleReplacementPlugin(),
       // Start server on build
-      new StartServerPlugin(),
+      (options.env === 'development') && new StartServerPlugin(),
       // For better module names
       new webpack.NamedModulesPlugin(),
-    ]
+    ].filter(Boolean)
   }
 }
