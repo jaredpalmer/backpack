@@ -94,7 +94,7 @@ Here's an example `.babelrc` file:
   "presets": [
     "backpack-core/babel",
     "stage-0"
-  ],
+  ]
 }
 ```
 
