@@ -42,14 +42,15 @@ const preset = {
   ]
 }
 
-if (process.env.NODE_ENV || process.env.BABEL_ENV === 'test') {
+if (process.env.NODE_ENV === 'test' || process.env.BABEL_ENV === 'test') {
   preset.plugins.push.apply(preset.plugins, [
     // We always include this plugin regardless of environment
     // because of a Babel bug that breaks object rest/spread without it:
     // https://github.com/babel/babel/issues/4851
     require.resolve('babel-plugin-transform-es2015-parameters'),
+    
     // Jest needs this to work properly with import/export syntax
-    require.resolve('babel-plugin-transform-es2015-modules-commonjs')
+    [require.resolve('babel-plugin-transform-es2015-modules-commonjs'), {loose: true}]
   ])
 }
 
