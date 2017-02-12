@@ -1,3 +1,4 @@
+import { createServer, Server } from "http";
 import path from "path";
 
 // Placeholder for the active server
@@ -25,9 +26,13 @@ const startApp = () => {
     return;
   }
 
+  // App may have already called .listen
+  if (app instanceof Server) {
+    return console.warn("❗ Server already started!");
+  }
+
   // Express/Koa app
-  if (app && app.listen) {
-    const { createServer } = require("http");
+  if (app.listen) {
     const port = process.env.PORT || 3000
     server = createServer((req, res) => {
       const app = getApp();
