@@ -125,6 +125,8 @@ module.exports = (options) => {
       new webpack.HotModuleReplacementPlugin(),
       // Start server on build
       new StartServerPlugin(),
+      // For better module names
+      new webpack.NamedModulesPlugin(),
     ]
   }
 }
