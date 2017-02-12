@@ -1,5 +1,5 @@
 {
-  "name": "backpack-examples-basic",
+  "name": "backpack-examples-hot-module-replacement",
   "version": "0.0.8",
   "scripts": {
     "start": "node ./build/main.js",
