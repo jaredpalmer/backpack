@@ -2,6 +2,7 @@ const fs = require('fs')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const StartServerPlugin = require("start-server-webpack-plugin").default
 const config = require('./paths')
 const path = require('path')
 const babelPreset = require('../babel')
@@ -37,7 +38,9 @@ module.exports = (options) => {
     // don't want to bundle its node_modules dependencies. This creates an externals
     // function that ignores node_modules when bundling in Webpack.
     // @see https://github.com/liady/webpack-node-externals
-    externals: nodeExternals(),
+    externals: nodeExternals({
+      whitelist: [/^webpack/]
+    }),
     // As of Webpack 2 beta, Webpack provides performance hints.
     // Since we are not targeting a browser, bundle size is not relevant.
     // Additionally, the performance hints clutter up our nice error messages.
@@ -58,9 +61,10 @@ module.exports = (options) => {
       __dirname: false
     },
     entry: {
-      main: [
-        `${config.serverSrcPath}/index.js`
-      ],
+      main: options.env === 'development' ? [
+        'webpack/hot/poll?1000',
+        `${path.resolve(__dirname, "../hot")}?${path.resolve(config.serverSrcPath, "index.js")}`
+      ] : path.resolve(config.serverSrcPath, "index.js"),
     },
     // This sets the default output file path, name, and compile target
     // module type. Since we are focused on Node.js, the libraryTarget
@@ -86,6 +90,7 @@ module.exports = (options) => {
         {
           test: /\.(js|jsx)$/,
           loader: 'babel-loader',
+          // @TODO Change this to include
           exclude: [
             /node_modules/,
             config.buildPath
@@ -116,7 +121,13 @@ module.exports = (options) => {
       // It does not actually swallow errors. Instead, it just prevents
       // Webpack from printing out compile time stats to the console.
       // @todo new webpack.NoEmitOnErrorsPlugin()
-      new webpack.NoErrorsPlugin()
-    ]
+      new webpack.NoErrorsPlugin(),
+      // Enable HMR
+      (options.env === 'development') && new webpack.HotModuleReplacementPlugin(),
+      // Start server on build
+      (options.env === 'development') && new StartServerPlugin(),
+      // For better module names
+      new webpack.NamedModulesPlugin(),
+    ].filter(Boolean)
   }
 }

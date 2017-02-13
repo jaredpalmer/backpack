@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const path = require("path");
+
+const entry = require(path.resolve(process.cwd(), "build/main.js"));
+const app = entry.default || entry;
+const port = process.env.PORT || 3000;
+
+// @TODO Switch to start-cluster
+app.listen(port, () => {
+  console.log(`️🏃‍ Server started on http://localhost:${port}/.`);
+});

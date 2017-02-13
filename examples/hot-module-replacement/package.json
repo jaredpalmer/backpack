@@ -1,0 +1,15 @@
+{
+  "name": "backpack-examples-hot-module-replacement",
+  "version": "0.0.8",
+  "scripts": {
+    "start": "backpack start",
+    "dev": "backpack dev",
+    "build": "backpack build",
+    "postinstall": "backpack build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "backpack-core": "^0.0.8",
+    "express": "^4.14.0"
+  }
+}
