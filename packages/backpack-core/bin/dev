@@ -1,6 +1,5 @@
 #! /usr/bin/env node
 const webpack = require('webpack')
-const chokidar = require('chokidar')
 const nodemon = require('nodemon')
 const paths = require('../config/paths')
 const once = require('ramda').once
