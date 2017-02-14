@@ -15,7 +15,6 @@
     "babel-core": "^6.22.0",
     "babel-loader": "^6.2.10",
     "babel-preset-backpack": "^0.0.9",
-    "chokidar": "^1.6.1",
     "cross-spawn": "^5.0.1",
     "friendly-errors-webpack-plugin": "^1.1.2",
     "nodemon": "^1.11.0",
