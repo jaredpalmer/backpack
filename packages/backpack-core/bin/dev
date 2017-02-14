@@ -26,7 +26,7 @@ const serverConfig = userConfig.webpack
 
 process.on('SIGINT', process.exit)
 
-let serverCompiler
+const serverCompiler = webpack(serverConfig)
 
 const startServer = () => {
   const serverPaths = Object
@@ -36,24 +36,8 @@ const startServer = () => {
     .on('quit', process.exit)
 }
 
-const compileServer = () => serverCompiler.run(() => undefined)
-
-const startServerOnce = once(() => startServer())
-
-const watcher = chokidar.watch([paths.serverSrcPath])
-
-watcher.on('ready', () => {
-  watcher
-    .on('add', compileServer)
-    .on('addDir', compileServer)
-    .on('change', compileServer)
-    .on('unlink', compileServer)
-    .on('unlinkDir', compileServer)
-})
-
-serverCompiler = webpack(serverConfig, (err, stats) => {
+const startServerOnce = once((err, stats) => {
   if (err) return
-  startServerOnce()
+  startServer()
 })
-
-
+serverCompiler.watch({}, startServerOnce)
