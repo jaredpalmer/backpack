@@ -116,8 +116,8 @@ module.exports = (options) => {
         raw: true,
         entryOnly: false,
         banner: `require('${
-            // Is source-map-support installed as project dependency, or linked?
-            require.resolve('source-map-support').match(process.cwd())
+          // Is source-map-support installed as project dependency, or linked?
+          ( require.resolve('source-map-support').indexOf(process.cwd()) === 0 )
             // If it's resolvable from the project root, it's a project dependency.
             ? 'source-map-support/register'
             // It's not under the project, it's linked via lerna.
