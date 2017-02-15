@@ -46,7 +46,7 @@ This will clean out, reinstall, rebuild, and symlink all of the `examples` and `
 
 ## Support
 
-- [Join the #backpack channel on The Palmer Group's public Slack chat](https://palmer-slackin-rnzoxvxyqw.now.sh/)
+- Join the #backpack channel in our public Slack group. Sign up at [https://palmer.chat](https://palmer.chat/)
 - File an issue on GitHub
 - Tweet to or DM [@jaredpalmer](https://twitter.com/jaredpalmer)
 
