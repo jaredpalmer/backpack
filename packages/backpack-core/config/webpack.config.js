@@ -61,8 +61,8 @@ module.exports = (options) => {
       modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
     },
     node: {
-      __filename: false,
-      __dirname: false
+      __filename: true,
+      __dirname: true
     },
     entry: {
       main: [
@@ -114,6 +114,7 @@ module.exports = (options) => {
       // top of each file using the BannerPlugin.
       new webpack.BannerPlugin({
         raw: true,
+        entryOnly: false,
         banner: `require('${require.resolve('source-map-support/register')}')`
       }),
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
