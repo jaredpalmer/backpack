@@ -1,7 +1,7 @@
 ![backpack](https://cloud.githubusercontent.com/assets/4060187/21872211/318795e8-d835-11e6-8376-bea370605361.png)
 
 ![backpack-status](https://david-dm.org/palmerhq/backpack.svg?path=packages/backpack-core)
-[![npm version](https://badge.fury.io/js/backpack-core.svg)](https://badge.fury.io/js/backpack-core) [![Join the chat at https://gitter.im/palmerhq/backpack](https://badges.gitter.im/palmerhq/backpack.svg)](https://gitter.im/palmerhq/backpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/backpack-core.svg)](https://badge.fury.io/js/backpack-core) [![Join the chat at on Slack](https://palmer.chat/badge.svg)](https://palmer.chat/)
 
 Backpack is minimalistic build system for Node.js. Inspired by Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app), Zeit's [Next.js](https://github.com/zeit/next.js), and Remy's [Nodemon](https://github.com/remy/nodemon), Backpack lets you create modern Node.js apps and services with zero configuration. Backpack handles all the file-watching, live-reloading, transpiling, and bundling, so you don't have to. It comes with a few ~~conventions~~ defaults (like support for the latest JavaScript awesomeness (i.e. async/await, object rest spread, and class properties)), but everything can be customized to fit your project's needs. Best of all, you can easily add Backpack to your existing Node.js project with just a single dependency.
 
@@ -19,7 +19,7 @@ HOWEVER, you can configure Backpack to your project's needs by extending [the un
 Install it:
 
 ```bash
-npm i backpack-core --save-dev
+npm i backpack-core --save
 ```
 
 and add a script to your package.json like this:
@@ -92,9 +92,9 @@ Here's an example `.babelrc` file:
 ```js
 {
   "presets": [
-    "backpack-core",
+    "backpack-core/babel",
     "stage-0"
-  ],
+  ]
 }
 ```
 
@@ -164,7 +164,7 @@ Technically, yes. However, we strongly advise against it at the moment. Backpack
 <details>
   <summary>What syntactic features are transpiled? How do I change them?</summary>
   
-We track V8. Since V8 has wide support for ES6 and async and await, we transpile those. Since V8 doesn’t support class decorators, we don’t transpile those.
+We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 doesn’t support async/await and class properties yet, we transpile those.
   
   See [this](https://github.com/palmerhq/backpack/blob/master/packages/backpack-core/config/webpack.config.js#L83) and [this](https://github.com/palmerhq/backpack#customizing-webpack)
 </details>

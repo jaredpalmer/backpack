@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-with-custom-babel-config",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
@@ -9,10 +9,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
-  },
-  "devDependencies": {
     "babel-preset-stage-0": "^6.16.0",
-    "backpack-core": "0.0.7"
+    "backpack-core": "^0.1.0",
+    "express": "^4.14.0"
   }
 }

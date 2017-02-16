@@ -37,7 +37,14 @@ module.exports = (options) => {
     // don't want to bundle its node_modules dependencies. This creates an externals
     // function that ignores node_modules when bundling in Webpack.
     // @see https://github.com/liady/webpack-node-externals
-    externals: nodeExternals(),
+    externals: nodeExternals({
+      whitelist: [
+        /\.(eot|woff|woff2|ttf|otf)$/,
+        /\.(svg|png|jpg|jpeg|gif|ico|webm)$/,
+        /\.(mp4|mp3|ogg|swf|webp)$/,
+        /\.(css|scss|sass|less|styl)$/,
+      ]
+    }),
     // As of Webpack 2 beta, Webpack provides performance hints.
     // Since we are not targeting a browser, bundle size is not relevant.
     // Additionally, the performance hints clutter up our nice error messages.
@@ -54,8 +61,8 @@ module.exports = (options) => {
       modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
     },
     node: {
-      __filename: false,
-      __dirname: false
+      __filename: true,
+      __dirname: true
     },
     entry: {
       main: [
@@ -107,7 +114,15 @@ module.exports = (options) => {
       // top of each file using the BannerPlugin.
       new webpack.BannerPlugin({
         raw: true,
-        banner: 'require("source-map-support").install();'
+        entryOnly: false,
+        banner: `require('${
+          // Is source-map-support installed as project dependency, or linked?
+          ( require.resolve('source-map-support').indexOf(process.cwd()) === 0 )
+            // If it's resolvable from the project root, it's a project dependency.
+            ? 'source-map-support/register'
+            // It's not under the project, it's linked via lerna.
+            : require.resolve('source-map-support/register')
+        }')`
       }),
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
       // gives Backpack its human-readable error messages.

@@ -1,7 +1,7 @@
 # Custom Babel Configuration Example
 
 ## How to use
-Download the example (or clone the whole project)[https://github.com/palmerhq/backpack.git]:
+Download the example [or clone the whole project](https://github.com/palmerhq/backpack.git):
 ```bash
 curl https://codeload.github.com/palmerhq/backpack/tar.gz/master | tar -xz --strip=2 backpack-master/examples/with-custom-babel-config
 cd with-custom-babel-config
