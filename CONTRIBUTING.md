@@ -1,4 +1,14 @@
 # How to Contribute to Backpack
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [How to Contribute to Backpack](#how-to-contribute-to-backpack)
+  - [Getting started](#getting-started)
+  - [Using Lerna](#using-lerna)
+  - [Support](#support)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Getting started
 First fork the project to your GitHub account. Then clone it, checkout a new branch, and install the dependencies. 

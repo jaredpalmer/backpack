@@ -14,6 +14,24 @@ Backpack is minimalistic build system for Node.js. Inspired by Facebook's [creat
 
 HOWEVER, you can configure Backpack to your project's needs by extending [the underlying Webpack 2 configuration](#custom-configuration). 
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [How to use](#how-to-use)
+  - [Custom configuration](#custom-configuration)
+  - [Customizing webpack config](#customizing-webpack-config)
+  - [Customizing babel config](#customizing-babel-config)
+  - [Building for Production](#building-for-production)
+- [CLI Commands](#cli-commands)
+  - [`backpack dev`](#backpack-dev)
+  - [`backpack build`](#backpack-build)
+- [FAQ](#faq)
+- [Inspiration](#inspiration)
+- [Authors](#authors)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## How to use
 
 Install it:
