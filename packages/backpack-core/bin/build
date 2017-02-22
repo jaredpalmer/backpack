@@ -23,12 +23,17 @@ const fullConfig = userConfig.webpack
       : defaultConfig(options)
 
 const serverConfig = Array.isArray(fullConfig)
-      ? fullConfig.filter(({target} = {}) => { target === 'node' })[0]
+      ? fullConfig.filter(({target} = {}) => target === 'node')[0]
       : serverConfig;
 
 process.on('SIGINT', process.exit)
 
 const serverCompiler = webpack(fullConfig)
+
+const serverCompiler = compilers.compilers
+      ? compilers.compilers.filter(({options: {target}}) => target === 'node')[0]
+      : compilers
+
 const compileServer = () => serverCompiler.run(() => undefined)
 
 compileServer()
