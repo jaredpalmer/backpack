@@ -1,7 +1,5 @@
-const webpack = require('webpack')
-
 module.exports = {
-  webpack: (config, options) => {
+  webpack: (config, options, webpack) => {
     config.entry.main = [
       './src/main.ts'
     ]

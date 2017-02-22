@@ -87,7 +87,7 @@ To extend webpack, you can define a function that extends its config via `backpa
 ```js
 // backpack.config.js
 module.exports = {
-  webpack: (config, options) => {
+  webpack: (config, options, webpack) => {
     // Perform customizations to config
     // Important: return the modified config
     return config

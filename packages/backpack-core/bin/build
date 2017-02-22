@@ -19,7 +19,7 @@ if (fs.existsSync(configPath)) {
 }
 
 const serverConfig = userConfig.webpack
-      ? userConfig.webpack(defaultConfig(options), options)
+      ? userConfig.webpack(defaultConfig(options), options, webpack)
       : defaultConfig(options)
 
 process.on('SIGINT', process.exit)
