@@ -19,13 +19,17 @@ if (fs.existsSync(configPath)) {
   userConfig = userConfigModule.default || userConfigModule
 }
 
-const serverConfig = userConfig.webpack
+const fullConfig = userConfig.webpack
       ? userConfig.webpack(defaultConfig(options), options)
       : defaultConfig(options)
 
 process.on('SIGINT', process.exit)
 
-const serverCompiler = webpack(serverConfig)
+const compilers = webpack(fullConfig)
+
+const serverCompiler = compilers.compilers
+      ? compilers.compilers.filter(({options: {target}}) => target === 'node')[0]
+      : compilers
 
 const startServer = () => {
   const serverPaths = Object
@@ -39,4 +43,4 @@ const startServerOnce = once((err, stats) => {
   if (err) return
   startServer()
 })
-serverCompiler.watch({}, startServerOnce)
+compilers.watch({}, startServerOnce)
