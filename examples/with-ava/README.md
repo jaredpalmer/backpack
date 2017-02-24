@@ -22,6 +22,6 @@ This is an example of how to use the Ava test framework with Backpack.
 
 **Points of Interest:**
 
- - New `.babelrc` file with `presets: ["backpack-core/babel", "env", "stage-0"]`
+ - New `.babelrc` file with `presets: ["backpack-core/babel", "@ava/stage-4","@ava/transform-test-files"]`
  - Add `ava` to devDependencies in `package.json`
  - Add `"ava"` section to `package.json` to manage Ava configuration
