@@ -1,4 +1,4 @@
-# Example with Ava
+# Example with AVA
 
 ## How to use
 
@@ -18,7 +18,7 @@ npm t
 
 ## Idea behind the example
 
-This is an example of how to use the Ava test framework with Backpack.
+This is an example of how to use the AVA test framework with Backpack.
 
 **Points of Interest:**
 
