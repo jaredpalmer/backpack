@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "backpack",
     "test": "ava -v",
-    "tdd": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch"
   },
   "author": "",
   "license": "MIT",
