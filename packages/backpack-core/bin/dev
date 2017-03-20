@@ -39,4 +39,4 @@ const startServerOnce = once((err, stats) => {
   if (err) return
   startServer()
 })
-serverCompiler.watch({}, startServerOnce)
+serverCompiler.watch(serverConfig.watchOptions || {}, startServerOnce)
