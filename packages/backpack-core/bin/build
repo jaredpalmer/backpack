@@ -25,6 +25,9 @@ const serverConfig = userConfig.webpack
 process.on('SIGINT', process.exit)
 
 const serverCompiler = webpack(serverConfig)
-const compileServer = () => serverCompiler.run(() => undefined)
 
-compileServer()
+serverCompiler.run((error, stats) => {
+  if (error || stats.hasErrors()) {
+    process.exitCode = 1;
+  }
+})
