@@ -1,0 +1,24 @@
+{
+  "name": "backpack-examples-with-ava",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "backpack",
+    "test": "ava -v",
+    "watch": "npm run test -- --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "backpack-core": "^0.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-stage-0": "^6.22.0"
+  },
+  "ava": {
+    "require": ["babel-register"]
+  }
+}
