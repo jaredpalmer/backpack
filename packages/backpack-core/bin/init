@@ -1,0 +1,86 @@
+#!/usr/bin/env node
+const path = require('path')
+const parseArgs = require('minimist')
+const fs = require('mz/fs')
+const mkdirp = require('mkdirp-then')
+
+const argv = parseArgs(process.argv.slice(2), {
+  alias: {
+    h: 'help'
+  },
+  boolean: ['h']
+})
+
+if (argv.help) {
+  console.log(`
+    Description
+      Scaffolds a simple project structure to get started quickly
+    Usage
+      $ backpack init <dir>
+      If no directory is provided the current directory will be used.
+    Options
+      --help, -h      Displays this message
+  `)
+
+  process.exit(0)
+}
+
+const dir = path.resolve(argv._[0] || '.')
+
+if (path.basename(dir) === 'src') {
+  console.warn('Your root directory is named "src". This looks suspicious. You probably want to go one directory up.')
+  process.exit(1)
+}
+
+fs.exists(dir)
+  .then(present => {
+    if (!present) {
+     return mkdirp(dir)
+    }
+  })
+  .then(() => fs.exists(path.join(dir, 'package.json')))
+  .then(present => {
+    if (!present) {
+      return fs.writeFile(path.join(dir, 'package.json'),
+         basePackage.replace(/my-app/g, path.basename(dir)))
+    }
+  })
+  .then(() => fs.exists(path.join(dir, 'src')))
+  .then(present => {
+    if (!present) {
+      return Promise.all([
+        fs.mkdir(path.join(dir, 'src')),
+        fs.writeFile(path.join(dir, 'src', 'index.js'), baseScript)
+      ])  
+    }
+  })
+  .catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+
+const basePackage = `{
+  "name": "my-app",
+  "description": "",
+  "devDependencies": {
+    "backpack": "latest"
+  },
+  "scripts": {
+    "dev": "backpack",
+    "build": "backpack build",
+    "start": "node ./build/main.js"
+  }
+}`
+
+const baseScript = `
+async function sayHello () {
+  try {
+    console.log('hello world')
+  } catch (e) {
+    throw e   
+  }
+}
+
+sayHello()
+  .then(() => console.log('good bye'))
+`
