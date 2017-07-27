@@ -1,6 +1,6 @@
 {
   "name": "backpack-core",
-  "version": "0.3.0",
+  "version": "0.4.0-rc1",
   "description": "Backpack is a minimalistic build system for Node.js",
   "repository": "palmerhq/backpack",
   "author": "@jaredpalmer",
@@ -12,15 +12,15 @@
     "backpack": "./bin/backpack"
   },
   "dependencies": {
-    "babel-core": "^6.22.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-backpack": "^0.0.9",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-backpack": "^0.4.0-rc1",
     "cross-spawn": "^5.0.1",
-    "friendly-errors-webpack-plugin": "^1.1.2",
+    "friendly-errors-webpack-plugin": "^1.6.1",
     "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
-    "source-map-support": "^0.4.11",
-    "webpack": "2.2.0-rc.3",
-    "webpack-node-externals": "^1.5.4"
+    "source-map-support": "^0.4.15",
+    "webpack": "^3.0.0",
+    "webpack-node-externals": "^1.6.0"
   }
 }

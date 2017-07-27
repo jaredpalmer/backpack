@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-basic",
-  "version": "0.3.0",
+  "version": "0.4.0-rc1",
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "backpack-core": "^0.3.0",
+    "backpack-core": "^0.4.0-rc1",
     "express": "^4.14.0"
   }
 }
