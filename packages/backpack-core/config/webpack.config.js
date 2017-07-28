@@ -127,11 +127,9 @@ module.exports = (options) => {
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
       // gives Backpack its human-readable error messages.
       new FriendlyErrorsWebpackPlugin(),
-      // This plugin is awkwardly named. Use to be called NoErrorsPlugin.
-      // It does not actually swallow errors. Instead, it just prevents
-      // Webpack from printing out compile time stats to the console.
-      // @todo new webpack.NoEmitOnErrorsPlugin()
-      new webpack.NoErrorsPlugin()
+      // The NoEmitOnErrorsPlugin plugin prevents Webpack
+      // from printing out compile time stats to the console.
+      new webpack.NoEmitOnErrorsPlugin()
     ]
   }
 }
