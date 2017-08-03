@@ -14,6 +14,8 @@ Backpack is minimalistic build system for Node.js. Inspired by Facebook's [creat
 
 HOWEVER, you can configure Backpack to your project's needs by extending [the underlying Webpack 2 configuration](#custom-configuration). 
 
+**PLEASE READ:** If you're thinking of using Backpack with React.js, you should use [Razzle](https://github.com/jaredpalmer) instead. It is a project purpose-built for SSR React with an almost identical API.
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
