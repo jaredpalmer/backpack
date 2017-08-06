@@ -127,7 +127,7 @@ module.exports = (options) => {
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
       // gives Backpack its human-readable error messages.
       new FriendlyErrorsWebpackPlugin({
-        clearConsole: options.env === 'development' || process.env.VERBOSE
+        clearConsole: options.env === 'development',
       }),
       // The NoEmitOnErrorsPlugin plugin prevents Webpack
       // from printing out compile time stats to the console.
