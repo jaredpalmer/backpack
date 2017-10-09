@@ -32,7 +32,7 @@ const startServer = () => {
 		path.join(serverCompiler.options.output.path, `${entry}.js`)
 	);
 	nodemon({
-		script: './build/main',
+		script: path.relative(process.cwd(), serverPaths[0]),
 		watch: serverPaths,
 		nodeArgs: process.argv.slice(2)
 	}).on('quit', process.exit);
