@@ -5,7 +5,7 @@ const preset = {
     [
       require('babel-preset-env').default,
       {
-        target: {
+        targets: {
           node: 'current'
         },
         // Webpack takes care of modules, so we don't have to.
