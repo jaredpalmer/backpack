@@ -7,7 +7,7 @@ const fs = require('fs')
 process.on('SIGINT', process.exit)
 
 const options = {
-  env: 'production'
+  env: process.env.NODE_ENV || 'production'
 }
 
 const configPath = path.resolve('backpack.config.js')
