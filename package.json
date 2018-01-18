@@ -5,5 +5,8 @@
   "scripts": {
     "clean": "lerna clean",
     "postinstall": "lerna bootstrap"
+  },
+  "dependencies": {
+    "@babel/preset-stage-0": "^7.0.0-beta.37"
   }
 }
