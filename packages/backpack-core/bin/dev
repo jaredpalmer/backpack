@@ -31,7 +31,20 @@ const startServer = () => {
   const serverPaths = Object
     .keys(serverCompiler.options.entry)
     .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
-  nodemon({ script: serverPaths[0], watch: serverPaths, nodeArgs: process.argv.slice(2) })
+  
+  const nodemonOptions = {
+    script: serverPaths[0],
+    watch: serverPaths,
+    nodeArgs: process.argv.slice(2)
+  }
+
+  const relativeScriptFlag = '--backpack--relative-script-path'
+  if (nodemonOptions.nodeArgs.includes(relativeScriptFlag)) {
+    nodemonOptions.script = path.relative(process.cwd(), nodemonOptions.script)
+    nodemonOptions.nodeArgs.splice(nodemonOptions.nodeArgs.indexOf(relativeScriptFlag), 1)
+  }
+
+  nodemon(nodemonOptions)
     .on('quit', process.exit)
 }
 
