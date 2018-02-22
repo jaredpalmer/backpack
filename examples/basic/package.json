@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "backpack-core": "^0.5.0",
-    "express": "^4.14.0"
+    "express": "^4.16.2"
   }
 }
