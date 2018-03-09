@@ -30,7 +30,7 @@ export class Server {
     console.log(`> listening on port ${this.port}`)
   };
 
-  private getPort = (): number => process.env.PORT || 3000;
+  private getPort = (): number => parseInt(process.env.PORT, 10) || 3000;
 
   private setRoutes = (): void => {
     this.app.get('/', this.getHomepage);
