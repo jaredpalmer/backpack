@@ -20,5 +20,6 @@
   "workspaces": [
     "packages/*",
     "examples/*"
-  ]
+  ],
+  "version": "0.6.0"
 }
