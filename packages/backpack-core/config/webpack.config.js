@@ -38,6 +38,7 @@ module.exports = (options) => {
     // function that ignores node_modules when bundling in Webpack.
     // @see https://github.com/liady/webpack-node-externals
     externals: nodeExternals({
+      modulesFromFile: true,
       whitelist: [
         /\.(eot|woff|woff2|ttf|otf)$/,
         /\.(svg|png|jpg|jpeg|gif|ico|webm)$/,
@@ -55,10 +56,10 @@ module.exports = (options) => {
     // Backpack's and the given user's node_modules without conflict.
     resolve: {
       extensions: ['.js', '.json'],
-      modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+      // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
     },
     resolveLoader: {
-      modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+      // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
     },
     node: {
       __filename: true,
@@ -87,12 +88,12 @@ module.exports = (options) => {
         // It is focused on developer experience and fast rebuilds.
         {
           test: /\.json$/,
-          loader: 'json-loader'
+          loader: require.resolve('json-loader')
         },
         // Process JS with Babel (transpiles ES6 code into ES5 code).
         {
           test: /\.(js|jsx)$/,
-          loader: 'babel-loader',
+          loader: require.resolve('babel-loader'),
           exclude: [
             /node_modules/,
             config.buildPath

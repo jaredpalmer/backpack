@@ -1,9 +1,24 @@
 {
+  "private": true,
   "devDependencies": {
-    "lerna": "^2.0.0-rc.5"
+    "lerna": "^2.9.0"
   },
   "scripts": {
+    "bootstrap-workaround": "lerna exec yarn && lerna link && lerna run prepublish && lerna run prepare",
+    "postinstall": "yarn bootstrap-workaround",
+    "bootstrap": "lerna bootstrap",
     "clean": "lerna clean",
-    "postinstall": "lerna bootstrap"
-  }
+    "purge-lock-files": "rm -rf ./yarn.lock && rm -rf ./**/**/yarn.lock",
+    "purge-modules": "lerna clean --yes && rm -rf ./node_modules & rm -rf ./tools",
+    "purge": "yarn purge-modules && yarn purge-lock-files",
+    "reinstall": "yarn purge && yarn",
+    "build": "lerna run build --stream --parallel"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ]
 }
