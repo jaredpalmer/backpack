@@ -1,17 +1,21 @@
 # How to Contribute to Backpack
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-- [How to Contribute to Backpack](#how-to-contribute-to-backpack)
-  - [Getting started](#getting-started)
-  - [Using Lerna](#using-lerna)
-  - [Support](#support)
+* [How to Contribute to Backpack](#how-to-contribute-to-backpack)
+  * [Getting started](#getting-started)
+  * [Using Lerna](#using-lerna)
+  * [Support](#support)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Getting started
-First fork the project to your GitHub account. Then clone it, checkout a new branch, and install the dependencies. 
+
+First fork the project to your GitHub account. Then clone it, checkout a new branch, and install the dependencies.
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/backpack.git
@@ -33,12 +37,12 @@ npm run dev
 
 Next, I open up `packages/backpack-core/webpack.config.js` in my editor and make some changes to the webpack configuration focusing on development mode.
 
-To try out these local changes, I would need to: 
- 
-- Kill the running example (i.e. `CMD + c`)
-- Rerun it to pickup changes (i.e. `npm run dev`)
+To try out these local changes, I would need to:
 
-That's it. 
+* Kill the running example (i.e. `CMD + c`)
+* Rerun it to pickup changes (i.e. `npm run dev`)
+
+That's it.
 
 ## Using Lerna
 
@@ -47,17 +51,14 @@ When moving between branches, it's a good idea to work with a fresh install.
 In your project's root run the following:
 
 ```bash
-./node_modules/bin/lerna clean 
+./node_modules/bin/lerna clean
 ./node_modules/bin/lerna bootstrap
 ```
 
 This will clean out, reinstall, rebuild, and symlink all of the `examples` and `packages` properly.
 
-
 ## Support
 
-- Join the #backpack channel in our public Slack group. Sign up at [https://palmer.chat](https://palmer.chat/)
-- File an issue on GitHub
-- Tweet to or DM [@jaredpalmer](https://twitter.com/jaredpalmer)
-
-
+* Join the #backpack channel in our public Slack group. Sign up at [https://palmer.chat](https://palmer.chat/)
+* File an issue on GitHub
+* Tweet to or DM [@jaredpalmer](https://twitter.com/jaredpalmer)
