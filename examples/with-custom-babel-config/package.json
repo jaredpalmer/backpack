@@ -1,17 +1,16 @@
 {
-    "name": "backpack-examples-with-custom-babel-config",
-    "version": "0.5.0",
-    "scripts": {
-        "start": "node ./build/main.js",
-        "dev": "backpack dev",
-        "build": "backpack build",
-        "postinstall": "backpack build"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "@babel/core": "^7.0.0-beta.37",
-        "@babel/preset-stage-0": "^7.0.0-beta.37",
-        "backpack-core": "^0.5.0",
-        "express": "^4.14.0"
-    }
+  "name": "backpack-examples-with-custom-babel-config",
+  "version": "0.7.0",
+  "scripts": {
+    "start": "node ./build/main.js",
+    "dev": "backpack dev",
+    "build": "backpack build",
+    "postinstall": "backpack build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-stage-0": "^6.16.0",
+    "backpack-core": "^0.7.0",
+    "express": "^4.14.0"
+  }
 }

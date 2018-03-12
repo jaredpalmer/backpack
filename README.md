@@ -7,30 +7,32 @@ Backpack is minimalistic build system for Node.js. Inspired by Facebook's [creat
 
 **Backpack comes with the "battery-pack included":**
 
-- Latest ES6 features (including module syntax, async/await, object rest spread)
-- SUPER friendly, human readable error messages
-- Live reload (on saves, add/delete file, etc.)
-- Zero-config, one dependency.
+* Latest ES6 features (including module syntax, async/await, object rest spread)
+* SUPER friendly, human readable error messages
+* Live reload (on saves, add/delete file, etc.)
+* Zero-config, one dependency.
 
-HOWEVER, you can configure Backpack to your project's needs by extending [the underlying Webpack 2 configuration](#custom-configuration). 
+HOWEVER, you can configure Backpack to your project's needs by extending [the underlying Webpack 2 configuration](#custom-configuration).
 
 **PLEASE READ:** If you're thinking of using Backpack with React.js, you should use [Razzle](https://github.com/jaredpalmer/razzle) instead. It is a project purpose-built for SSR React with an almost identical API.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
-- [How to use](#how-to-use)
-  - [Custom configuration](#custom-configuration)
-  - [Customizing webpack config](#customizing-webpack-config)
-  - [Customizing babel config](#customizing-babel-config)
-  - [Building for Production](#building-for-production)
-- [CLI Commands](#cli-commands)
-  - [`backpack dev`](#backpack-dev)
-  - [`backpack build`](#backpack-build)
-- [FAQ](#faq)
-- [Inspiration](#inspiration)
-- [Authors](#authors)
+* [How to use](#how-to-use)
+  * [Custom configuration](#custom-configuration)
+  * [Customizing webpack config](#customizing-webpack-config)
+  * [Customizing babel config](#customizing-babel-config)
+  * [Building for Production](#building-for-production)
+* [CLI Commands](#cli-commands)
+  * [`backpack dev`](#backpack-dev)
+  * [`backpack build`](#backpack-build)
+* [FAQ](#faq)
+* [Inspiration](#inspiration)
+* [Authors](#authors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -54,7 +56,7 @@ and add a script to your package.json like this:
 
 After that there are just a few ~~conventions~~ defaults:
 
-- `src/index.js`: the entry of your app.
+* `src/index.js`: the entry of your app.
 
 ...actually that's it.
 
@@ -64,7 +66,7 @@ You can then run your application in development mode:
 npm run dev
 ```
 
-Successful builds will show a console like this. *Note: screenshot taken from running the [basic example](https://github.com/palmerhq/backpack/tree/master/examples/basic)*
+Successful builds will show a console like this. _Note: screenshot taken from running the [basic example](https://github.com/palmerhq/backpack/tree/master/examples/basic)_
 <img src="https://cloud.githubusercontent.com/assets/4060187/21944379/eaba2fde-d9a3-11e6-87aa-f30ddc88b5a8.png" width="600" alt="npm run dev">
 
 ### Custom configuration
@@ -77,13 +79,13 @@ For custom advanced behavior, you can create a `backpack.config.js` in the root 
 // You can however use the ES2015 features supported by your Node.js version.
 module.exports = {
   /* config options here */
-}
+};
 ```
 
 ### Customizing webpack config
 
-[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-webpack-config)  
-  
+[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-webpack-config)
+
 To extend webpack, you can define a function that extends its config via `backpack.config.js`.
 
 ```js
@@ -92,18 +94,18 @@ module.exports = {
   webpack: (config, options, webpack) => {
     // Perform customizations to config
     // Important: return the modified config
-    return config
-  }
-}
+    return config;
+  },
+};
 ```
 
 ### Customizing babel config
 
-[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-babel-config)  
+[Example](https://github.com/palmerhq/backpack/tree/master/examples/with-custom-babel-config)
 
 To extend our usage of `babel`, you can define a `.babelrc` file at the root of your app. This file is optional.
 
-If found, Backpack will consider it to be the *source of truth*. Thus it must define what Backpack needs as well, which is the `backpack-core/babel` preset.
+If found, Backpack will consider it to be the _source of truth_. Thus it must define what Backpack needs as well, which is the `backpack-core/babel` preset.
 
 This is designed so that you are not surprised by modifications we could make to the default `babel` configurations.
 
@@ -118,7 +120,7 @@ Here's an example `.babelrc` file:
 }
 ```
 
-*Note: This works [exactly like Next.js does](https://github.com/zeit/next.js#customizing-babel-config).*
+_Note: This works [exactly like Next.js does](https://github.com/zeit/next.js#customizing-babel-config)._
 
 ### Building for Production
 
@@ -137,20 +139,22 @@ Then run the build command and start your app
 
 ```bash
 npm run build
-node ./build/main.js 
+node ./build/main.js
 ```
 
 ## CLI Commands
 
 ### `backpack dev`
-Runs backpack in development mode.  
-   
+
+Runs backpack in development mode.
+
 Your code will reload if you make edits.  
 You will see the build errors in the console that look like this.
 
 <img src="https://cloud.githubusercontent.com/assets/4060187/21944372/e2d5e556-d9a3-11e6-9842-0e01ce28ddd6.png" width="600" alt="backpack dev">
 
 ### `backpack build`
+
 Builds the app for production to the `build` folder.  
 It correctly bundles your production mode and optimizes the build for the best performance.
 
@@ -160,9 +164,10 @@ You can run your production application with the following command:
 node ./build/main.js
 ```
 
-Your application is ready to be deployed! 
+Your application is ready to be deployed!
 
-*Note: Make sure to add the `build` directory to your `.gitignore` to keep compiled code out of your git repository*
+_Note: Make sure to add the `build` directory to your `.gitignore` to keep compiled code out of your git repository_
+
 ## FAQ
 
 <details>
@@ -173,6 +178,7 @@ Your application is ready to be deployed!
 Yes in that they will all make your life easier.
 
 No in that it that Backpack is focused on server-only applications. You should use create-react-app or Next.js for your frontend and then build your backend with Backpack.
+
 </details>
 
 <details>
@@ -196,11 +202,12 @@ We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 
 </details>
 
 ## Inspiration
-- [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
-- [nyt/kyt](https://github.com/NYTimes/kyt)
-- [zeit/next.js](https://github.com/zeit/next.js)
-- [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
+
+* [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
+* [nyt/kyt](https://github.com/NYTimes/kyt)
+* [zeit/next.js](https://github.com/zeit/next.js)
+* [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
 
-- Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - The Palmer Group
+* Jared Palmer ([@jaredpalmer](https://twitter.com/jaredpalmer)) - The Palmer Group

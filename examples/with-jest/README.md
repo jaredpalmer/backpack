@@ -22,7 +22,7 @@ This is an example of how to use the Jest test framework with Backpack.
 
 **Points of Interest:**
 
- - New `.babelrc` file with `presets: ["backpack-core/babel"]`
- - Add `babel-jest` and `jest-cli` to devDependencies in `package.json`
- - Add `"jest"` section to `package.json` to manage Jest configuration
- - Demonstrate how to write HTTP test with `supertest-as-promised`
+* New `.babelrc` file with `presets: ["backpack-core/babel"]`
+* Add `babel-jest` and `jest-cli` to devDependencies in `package.json`
+* Add `"jest"` section to `package.json` to manage Jest configuration
+* Demonstrate how to write HTTP test with `supertest-as-promised`

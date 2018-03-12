@@ -3,6 +3,6 @@
     "backpack-core/babel"
   ],
   "plugins": [
-    "@babel/plugin-transform-flow-strip-types"
+    "transform-flow-strip-types"
   ]
 }
