@@ -19,6 +19,5 @@
   "dependencies": {
     "express": "^4.16.2"
   },
-  "workspaces": ["packages/*", "examples/*"],
-  "version": "0.5.0"
+  "workspaces": ["packages/*", "examples/*"]
 }
