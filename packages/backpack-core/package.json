@@ -1,6 +1,6 @@
 {
   "name": "backpack-core",
-  "version": "0.7.0",
+  "version": "0.8.0-0",
   "description": "Backpack is a minimalistic build system for Node.js",
   "repository": "palmerhq/backpack",
   "author": "@jaredpalmer",
