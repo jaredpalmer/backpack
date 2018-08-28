@@ -4,8 +4,7 @@
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
-    "build": "backpack build",
-    "postinstall": "backpack build"
+    "build": "backpack build"
   },
   "license": "MIT",
   "dependencies": {

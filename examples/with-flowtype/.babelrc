@@ -1,8 +1,0 @@
-{
-  "presets": [
-    "backpack-core/babel"
-  ],
-  "plugins": [
-    "transform-flow-strip-types"
-  ]
-}

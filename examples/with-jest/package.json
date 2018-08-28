@@ -5,18 +5,17 @@
     "start": "node ./build/main.js",
     "test": "NODE_ENV=test jest",
     "dev": "backpack dev",
-    "build": "backpack build",
-    "postinstall": "backpack build"
+    "build": "backpack build"
   },
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "7.0.0-beta.39",
-    "babel-core": "7.0.0-bridge.0",
-    "backpack-core": "^0.8.0-0",
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "babel-jest": "^18.0.0",
+    "@babel/core": "7.0.0-beta.54",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.4.2",
+    "backpack-core": "^0.8.0-0",
     "jest-cli": "^18.1.0",
     "supertest": "^2.0.1"
   },
