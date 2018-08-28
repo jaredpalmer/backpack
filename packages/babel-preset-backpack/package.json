@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-backpack",
-  "version": "0.7.0",
+  "version": "0.8.0-0",
   "description": "Babel preset for Backpack projects",
   "repository": "palmerhq/backpack",
   "author": "jaredpalmer",
@@ -13,14 +13,16 @@
     "index.js"
   ],
   "dependencies": {
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
-    "babel-plugin-transform-es2015-parameters": "^6.21.0",
-    "babel-plugin-transform-object-rest-spread": "^6.20.2",
-    "babel-plugin-transform-regenerator": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-env": "^1.1.4",
-    "babel-runtime": "^6.22.0"
+    "@babel/core": "^7.0.0-beta.37",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.37",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.37",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.37",
+    "@babel/plugin-transform-parameters": "^7.0.0-beta.37",
+    "@babel/plugin-transform-regenerator": "^7.0.0-beta.37",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "@babel/runtime": "^7.0.0-beta.37",
+    "babel-loader": "v8.0.0-beta.0"
   },
   "keywords": [
     "babel",
