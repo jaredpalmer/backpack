@@ -16,11 +16,12 @@
     "babel-loader": "^7.1.0",
     "babel-preset-backpack": "^0.7.0",
     "cross-spawn": "^5.0.1",
-    "friendly-errors-webpack-plugin": "^1.7.0",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "json-loader": "^0.5.7",
     "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
     "source-map-support": "^0.4.15",
-    "webpack": "^4.11.1",
-    "webpack-node-externals": "^1.7.2"
+    "webpack": "^3.11.0",
+    "webpack-node-externals": "^1.6.0"
   }
 }
