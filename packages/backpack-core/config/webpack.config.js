@@ -24,6 +24,10 @@ module.exports = (options) => {
   }
 
   return {
+    // Webpack v4 add a mode configuration option tells webpack to use its
+    // built-in optimizations accordingly.
+    // @see https://webpack.js.org/concepts/mode/
+    mode: options.env === 'development' ? 'development' : 'production',
     // Webpack can target multiple environments such as `node`,
     // `browser`, and even `electron`. Since Backpack is focused on Node,
     // we set the default target accordingly.
@@ -88,7 +92,6 @@ module.exports = (options) => {
         // It is focused on developer experience and fast rebuilds.
         {
           test: /\.json$/,
-          loader: require.resolve('json-loader')
         },
         // Process JS with Babel (transpiles ES6 code into ES5 code).
         {
@@ -108,8 +111,9 @@ module.exports = (options) => {
       // you use something like eslint or standard in your editor, you will
       // want to configure __DEV__ as a global variable accordingly.
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(options.env),
-        '__DEV__': options.env === 'development'
+        // This is provided by the "mode" configuration option in webpack v4.
+        // 'process.env.NODE_ENV': JSON.stringify(options.env)
+        __DEV__: options.env === 'development'
       }),
       // In order to provide sourcemaps, we automagically insert this at the
       // top of each file using the BannerPlugin.
@@ -130,9 +134,14 @@ module.exports = (options) => {
       new FriendlyErrorsWebpackPlugin({
         clearConsole: options.env === 'development',
       }),
-      // The NoEmitOnErrorsPlugin plugin prevents Webpack
+    ],
+    // A few commonly used plugins have been removed from Webpack v4.
+    // Now instead, these plugins are avaliable as "optimizations".
+    // @see https://webpack.js.org/configuration/optimization/
+    optimization: {
+      // optimization.noEmitOnErrors prevents Webpack
       // from printing out compile time stats to the console.
-      new webpack.NoEmitOnErrorsPlugin()
-    ]
-  }
-}
+      noEmitOnErrors: true
+    }
+  };
+};
