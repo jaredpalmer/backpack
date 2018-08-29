@@ -4,12 +4,12 @@
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
-    "build": "backpack build",
-    "postinstall": "backpack build"
+    "build": "backpack build"
   },
   "license": "MIT",
   "dependencies": {
-    "babel-preset-stage-0": "^6.16.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
     "backpack-core": "^0.8.0-0",
     "express": "^4.14.0"
   }

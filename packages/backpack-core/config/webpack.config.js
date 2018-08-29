@@ -13,14 +13,18 @@ module.exports = options => {
   const hasBabelRc = fs.existsSync(babelRcPath);
   const mainBabelOptions = {
     babelrc: true,
+    // This is a feature of `babel-loader` for webpack (not Babel itself).
+    // It enables caching results in ./node_modules/.cache/babel-loader/
+    // directory for faster rebuilds.
     cacheDirectory: true,
+    highlightCode: true,
     presets: [],
   };
 
   if (hasBabelRc) {
     console.log('> Using .babelrc defined in your app root');
   } else {
-    mainBabelOptions.presets.push(require.resolve('../babel'));
+    mainBabelOptions.presets.push(require.resolve('babel-preset-backpack'));
   }
 
   return {
