@@ -22,7 +22,7 @@
     "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
     "source-map-support": "^0.4.15",
-    "webpack": "^3.11.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack": "^4.17.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }
