@@ -5,7 +5,7 @@ module.exports = function(api, opts, env) {
   const preset = {
     presets: [
       [
-        require('babel-preset-env').default,
+        require('@babel/preset-env').default,
         {
           targets: {
             node: 'current',
@@ -49,10 +49,13 @@ module.exports = function(api, opts, env) {
         require('@babel/plugin-transform-runtime').default,
         {
           helpers: false,
-          polyfill: false,
+          // This option was removed in v7 by just making it the default.
+          // polyfill: false,
           regenerator: true,
+          // Do not preserve commonjs semantics
+          useESModules: true,
           // Resolve the Babel runtime relative to the config.
-          moduleName: path.dirname(require.resolve('babel-runtime/package')),
+          absoluteRuntime: path.dirname(require.resolve('babel-runtime/package')),
         },
       ],
     ],

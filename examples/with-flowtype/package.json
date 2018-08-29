@@ -11,6 +11,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0-beta.37",
     "@babel/plugin-transform-flow-strip-types": "7.0.0-beta.54",
+    "@babel/preset-flow": "^7.0.0",
     "backpack-core": "^0.8.0-0",
     "express": "^4.14.0",
     "flow-bin": "^0.37.4"
