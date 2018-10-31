@@ -14,11 +14,6 @@
     "reinstall": "yarn purge && yarn",
     "build": "lerna run build --stream --parallel"
   },
-  "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0-beta.37",
-    "express": "^4.16.2"
-  },
   "workspaces": [
     "packages/*",
     "examples/*"
