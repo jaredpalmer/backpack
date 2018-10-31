@@ -45,10 +45,11 @@ module.exports = function() {
         require.resolve('@babel/plugin-transform-runtime'),
         {
           helpers: false,
-          polyfill: false,
           regenerator: true,
           // Resolve the Babel runtime relative to the config.
-          moduleName: path.dirname(require.resolve('@babel/runtime/package')),
+          absoluteRuntime: path.dirname(
+            require.resolve('@babel/runtime/package')
+          ),
         },
       ],
     ],
@@ -57,8 +58,8 @@ module.exports = function() {
   const v = process.versions.node.split('.');
   if ((v[0] >= 7 && v[1] >= 6) || v[0] >= 8) {
     preset.presets[0].exclude = [
-      'babel-plugin-transform-regenerator',
-      'transform-async-to-generator',
+      '@babel/plugin-transform-regenerator',
+      '@babel/transform-async-to-generator',
     ];
   }
   if (process.env.NODE_ENV === 'test' || process.env.BABEL_ENV === 'test') {

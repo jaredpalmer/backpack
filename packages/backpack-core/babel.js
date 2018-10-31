@@ -1,1 +1,1 @@
-module.exports = require('babel-preset-backpack')
+module.exports = require('babel-preset-backpack');

@@ -1,6 +1,9 @@
 {
   "presets": [
-    "backpack-core/babel",
-    "stage-0"
+    "backpack-core/babel"
+
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-do-expressions"
   ]
 }
