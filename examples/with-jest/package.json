@@ -15,9 +15,9 @@
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "babel-jest": "^23.6.0",
-    "jest-cli": "^23.6.0",
-    "supertest": "^2.0.1"
+    "babel-jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "supertest": "^4.0.2"
   },
   "jest": {
     "testEnvironment": "node",

@@ -1,7 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "lerna": "^2.9.0"
+    "lerna": "^3.15.0"
   },
   "scripts": {
     "bootstrap-workaround": "lerna exec yarn && lerna link && lerna run prepublish && lerna run prepare",
