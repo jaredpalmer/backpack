@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-with-custom-babel-config",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "scripts": {
     "start": "node ./build/main.js",
     "dev": "backpack dev",
@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
-    "backpack-core": "^0.8.3",
+    "backpack-core": "^0.8.4",
     "express": "^4.14.0"
   }
 }
