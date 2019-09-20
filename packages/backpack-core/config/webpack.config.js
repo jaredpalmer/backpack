@@ -126,8 +126,8 @@ module.exports = options => {
             ? // If it's resolvable from the project root, it's a project dependency.
             'source-map-support/register'
             : // It's not under the project, it's linked via lerna.
-            require.resolve('source-map-support/register')
-          }')`,
+              require.resolve('source-map-support/register')
+        }');`,
       }),
       // The FriendlyErrorsWebpackPlugin (when combined with source-maps)
       // gives Backpack its human-readable error messages.

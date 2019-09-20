@@ -1,6 +1,6 @@
 {
   "name": "backpack-examples-with-jest",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "scripts": {
     "start": "node ./build/main.js",
     "test": "NODE_ENV=test jest",
@@ -11,13 +11,13 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "backpack-core": "^0.8.3",
+    "backpack-core": "^0.8.4",
     "express": "^4.14.0"
   },
   "devDependencies": {
-    "babel-jest": "^23.6.0",
-    "jest-cli": "^23.6.0",
-    "supertest": "^2.0.1"
+    "babel-jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "supertest": "^4.0.2"
   },
   "jest": {
     "testEnvironment": "node",
