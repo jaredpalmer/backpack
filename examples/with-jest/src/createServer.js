@@ -1,16 +1,12 @@
-import express from 'express'
-
+import express from 'express';
 export default () => {
-  const app = express()
+  const app = express();
 
   app.get('/', async (req, res) => {
-    try {
-      const thing = await Promise.resolve({ one: 'two' }) // async/await!
-      return res.json({...thing, hello: 'world'}) // object-rest-spread!
-    } catch (e) {
-      return res.json({ error: e.message })
-    }
-  })
+    const thing = await Promise.resolve({ one: 'two' }) // async/await!
+      .catch(e => res.json({ error: e.message }));
+    return res.json({ ...thing, hello: 'world' }); // object-rest-spread!
+  });
 
-  return app
-}
+  return app;
+};
