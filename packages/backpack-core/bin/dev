@@ -23,30 +23,29 @@ const serverConfig = userConfig.webpack
       ? userConfig.webpack(defaultConfig(options), options, webpack)
       : defaultConfig(options)
 
-function startDevServer(serverCompiler) {
-  process.on('SIGINT', process.exit)
+process.on('SIGINT', process.exit)
 
-  const startServer = () => {
-    const serverPaths = Object
-      .keys(serverCompiler.options.entry)
-      .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
-    nodemon({ script: serverPaths[0], watch: serverPaths, nodeArgs: process.argv.slice(2) })
-      .on('quit', process.exit)
-  }
-
-  const startServerOnce = once((err, stats) => {
-    if (err) return
-    startServer()
-  })
-  serverCompiler.watch(serverConfig.watchOptions || {}, startServerOnce)
+const startServer = serverCompiler => {
+  const serverPaths = Object
+    .keys(serverCompiler.options.entry)
+    .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
+  nodemon({ script: serverPaths[0], watch: serverPaths, nodeArgs: process.argv.slice(2) })
+    .on('quit', process.exit)
 }
 
 Promise
   .resolve(serverConfig)
   .then(config => webpack(config))
-  .then(serverCompiler => startDevServer(serverCompiler))
-  .catch(err => {
-    console.error(err);
+  .then(serverCompiler => {
+    const startServerOnce = once((err, stats) => {
+      if (err) return
+      startServer(serverCompiler)
+    })
 
-    process.exit(1);
-  });
+    serverCompiler.watch(serverConfig.watchOptions || {}, startServerOnce)
+  })
+  .catch(err => {
+    console.error(err)
+
+    process.exit(1)
+  })
