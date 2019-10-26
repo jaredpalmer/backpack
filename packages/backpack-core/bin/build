@@ -31,13 +31,13 @@ Promise.resolve(serverConfig)
   .then(serverCompiler => {
     serverCompiler.run((error, stats) => {
       if (error || stats.hasErrors()) {
-        process.exitCode = 1;
+        process.exitCode = 1
       }
     })
   })
   .catch(err => {
-    console.error(err);
+    console.error(err)
 
-    console.log('Build failed.');
-    process.exit(1);
-  });
+    console.log('Build failed.')
+    process.exit(1)
+  })
