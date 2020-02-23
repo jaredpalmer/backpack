@@ -1,21 +1,32 @@
 {
-  "private": true,
+  "name": "backpack-core",
+  "version": "0.8.4",
+  "description": "Backpack is a minimalistic build system for Node.js",
+  "repository": "boringcodes/backpack",
+  "author": "@khanghuynh92",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/palmerhq/backpack/issues"
+  },
+  "dependencies": {
+    "cross-spawn": "^6.0.5",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "json-loader": "^0.5.7",
+    "nodemon": "^1.19.1",
+    "ramda": "^0.26.1",
+    "source-map-support": "^0.5.12",
+    "webpack": "^4.35.0",
+    "webpack-node-externals": "^1.7.2"
+  },
   "devDependencies": {
-    "lerna": "^3.15.0"
-  },
-  "scripts": {
-    "bootstrap-workaround": "lerna exec yarn && lerna link && lerna run prepublish && lerna run prepare",
-    "postinstall": "yarn bootstrap-workaround",
-    "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
-    "purge-lock-files": "rm -rf ./yarn.lock && rm -rf ./**/**/yarn.lock",
-    "purge-modules": "lerna clean --yes && rm -rf ./node_modules & rm -rf ./tools",
-    "purge": "yarn purge-modules && yarn purge-lock-files",
-    "reinstall": "yarn purge && yarn",
-    "build": "lerna run build --stream --parallel"
-  },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ]
+    "dotenv-webpack": "^1.7.0",
+    "ts-loader": "^6.2.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-immutable": "^5.0.0",
+    "tslint-sonarts": "^1.8.0",
+    "tslint-webpack-plugin": "^2.1.0",
+    "typescript": "^3.2.2"
+  }
 }

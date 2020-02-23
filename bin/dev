@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 const webpack = require('webpack')
 const nodemon = require('nodemon')
-const paths = require('../config/paths')
 const once = require('ramda').once
 const defaultConfig = require('../config/webpack.config')
 const path = require('path')
@@ -30,9 +29,14 @@ const serverCompiler = webpack(serverConfig)
 const startServer = () => {
   const serverPaths = Object
     .keys(serverCompiler.options.entry)
-    .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
-  nodemon({ script: serverPaths[0], watch: serverPaths, nodeArgs: process.argv.slice(2) })
-    .on('quit', process.exit)
+    .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`));
+  
+  nodemon({
+    script: serverPaths[0],
+    watch: serverPaths,
+    nodeArgs: process.argv.slice(2),
+  })
+  .on('quit', process.exit)
 }
 
 const startServerOnce = once((err, stats) => {

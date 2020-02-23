@@ -1,0 +1,36 @@
+{
+  "enable": true,
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-immutable",
+    "tslint-sonarts"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules",
+      "build",
+      "**/*.js"
+    ]
+  },
+  "rules": {
+    // tslint-config-airbnb
+    "import-name": false,
+    "no-submodule-imports": false,
+    "interface-over-type-literal": false,
+    "variable-name": [true, "allow-pascal-case"],
+
+    // tslint-immutable
+    // Recommended built-in rules
+    "no-var-keyword": true,
+    "no-parameter-reassignment": true,
+    // Immutability rules
+    "readonly-keyword": true,
+    "readonly-array": true,
+    "no-let": true,
+    "no-object-mutation": true,
+    "no-delete": true,
+    "no-method-signature": true,
+    // Functional style rules
+    "no-mixed-interface": true
+  }
+}

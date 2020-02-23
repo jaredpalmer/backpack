@@ -1,29 +1,18 @@
-const fs = require('fs');
 const webpack = require('webpack');
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const TSLintPlugin = require('tslint-webpack-plugin');
+
 const config = require('./paths');
-const path = require('path');
-const babelPreset = require('../babel');
 
 // This is the Webpack configuration.
 // It is focused on developer experience and fast rebuilds.
 module.exports = options => {
-  const babelRcPath = path.resolve('.babelrc');
-  const hasBabelRc = fs.existsSync(babelRcPath);
-  const mainBabelOptions = {
-    babelrc: true,
-    cacheDirectory: true,
-    presets: [],
-  };
-
-  if (hasBabelRc) {
-    console.log('> Using .babelrc defined in your app root');
-  } else {
-    mainBabelOptions.presets.push(require.resolve('../babel'));
-  }
-
   return {
+    
     // Webpack v4 add a mode configuration option tells webpack to use its
     // built-in optimizations accordingly.
     // @see https://webpack.js.org/concepts/mode/
@@ -32,10 +21,7 @@ module.exports = options => {
     // `browser`, and even `electron`. Since Backpack is focused on Node,
     // we set the default target accordingly.
     target: 'node',
-    // The benefit of Webpack over just using babel-cli or babel-node
-    // command is sourcemap support. Although it slows down compilation,
-    // it makes debugging dramatically easier.
-    devtool: 'source-map',
+    devtool: options.env !== 'development' ?  undefined : 'source-map',
     // Webpack allows you to define externals - modules that should not be
     // bundled. When bundling with Webpack for the backend - you usually
     // don't want to bundle its node_modules dependencies. This creates an externals
@@ -61,18 +47,22 @@ module.exports = options => {
     // Since we are wrapping our own webpack config, we need to properly resolve
     // Backpack's and the given user's node_modules without conflict.
     resolve: {
-      extensions: ['.js', '.json'],
+      extensions: ['.ts', '.js', '.json'],
+      modules: [path.resolve(__dirname, '../node_modules')],
       // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+      plugins: [new TsconfigPathsPlugin({
+        configFile: path.resolve(__dirname, '../config/tsconfig.json')
+      })]
     },
     resolveLoader: {
-      // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+      modules: [path.resolve(__dirname, '../node_modules')],
     },
     node: {
       __filename: true,
       __dirname: true,
     },
     entry: {
-      main: [`${config.serverSrcPath}/index.js`],
+      index: [`${config.serverSrcPath}/index.ts`],
     },
     // This sets the default output file path, name, and compile target
     // module type. Since we are focused on Node.js, the libraryTarget
@@ -88,13 +78,13 @@ module.exports = options => {
     // Webpack 2 configuration: module.rules instead of module.loaders
     module: {
       rules: [
-        // Process JS with Babel (transpiles ES6 code into ES5 code).
         {
-          test: /\.(js|jsx)$/,
-          loader: require.resolve('babel-loader'),
-          exclude: [/node_modules/, config.buildPath],
-          options: mainBabelOptions,
-        },
+          test: /\.ts$/,
+          loader: 'ts-loader',
+          options: {
+            configFile: path.resolve(__dirname, '../config/tsconfig.json')
+          }
+        }
       ],
     },
     // A few commonly used plugins have been removed from Webpack v4.
@@ -106,7 +96,20 @@ module.exports = options => {
       // from printing out compile time stats to the console.
       noEmitOnErrors: true,
     },
-    plugins: [
+    plugins: options.env !== 'development' ? [
+      new webpack.BannerPlugin({
+        raw: true,
+        entryOnly: false,
+        banner: `require('${
+          // Is source-map-support installed as project dependency, or linked?
+          require.resolve('source-map-support').indexOf(process.cwd()) === 0
+            ? // If it's resolvable from the project root, it's a project dependency.
+            'source-map-support/register'
+            : // It's not under the project, it's linked via lerna.
+              require.resolve('source-map-support/register')
+        }');`,
+      }),
+    ] : [
       // We define some sensible Webpack flags. One for the Node environment,
       // and one for dev / production. These become global variables. Note if
       // you use something like eslint or standard in your editor, you will
@@ -134,6 +137,11 @@ module.exports = options => {
       new FriendlyErrorsWebpackPlugin({
         clearConsole: options.env === 'development',
       }),
+      new Dotenv(),
+      new TSLintPlugin({
+        files: [path.resolve(config.serverSrcPath, './**/*.ts')],
+        config: path.resolve(__dirname, '../config/tslint.json'),
+      })
     ],
   };
 };
