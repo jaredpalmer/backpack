@@ -8,3 +8,9 @@
     <img src="https://badge.fury.io/js/@boringcodes/backpack.svg">
   </a>
 </div>
+
+### Added features
+
+- Typescript by default instead of Babel
+- Linting with tslint, tslint-config-airbnb, tslint-immutable & tslint-sonarts
+- Dotenv with dotenv-webpack
