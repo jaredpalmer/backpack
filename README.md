@@ -5,7 +5,7 @@
     <img src="https://david-dm.org/boringcodes/backpack.svg">
   </a>
   <a href="https://www.npmjs.com/package/@boringcodes/backpack" aria-label="NPM version">
-    <img src="https://badge.fury.io/js/@boringcodes/backpack.svg">
+    <img src="https://badge.fury.io/js/%40boringcodes%2Fbackpack.svg">
   </a>
 </div>
 
