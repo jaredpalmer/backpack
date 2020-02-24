@@ -2,14 +2,20 @@
   "name": "@boringcodes/backpack",
   "version": "0.8.4",
   "description": "Backpack with Some Boring Features",
-  "repository": "boringcodes/backpack",
-  "author": "BoringCodes (https://github.com/boringcodes)",
+  "homepage": "https://github.com/boringcodes/backpack",
+  "bugs": "https://github.com/boringcodes/backpack/issues",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/boringcodes/backpack/issues"
-  },
+  "author": "BoringCodes <hi@boringcodes.com> (https://boringcodes.com)",
+  "repository": "https://github.com/boringcodes/backpack.git",
   "bin": {
     "backpack": "./bin/backpack"
+  },
+  "scripts": {
+    "purge": "rm -rf node_modules",
+    "release": "standard-version",
+    "release:major": "yarn release --release-as major",
+    "release:minor": "yarn release --release-as minor",
+    "release:patch": "yarn release --release-as patch"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",
@@ -23,6 +29,7 @@
   },
   "devDependencies": {
     "dotenv-webpack": "^1.7.0",
+    "standard-version": "^7.1.0",
     "ts-loader": "^6.2.1",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.11.0",
