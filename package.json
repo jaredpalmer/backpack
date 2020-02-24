@@ -1,12 +1,15 @@
 {
-  "name": "backpack-core",
+  "name": "@boringcodes/backpack",
   "version": "0.8.4",
-  "description": "Backpack is a minimalistic build system for Node.js",
+  "description": "Backpack with Some Boring Features",
   "repository": "boringcodes/backpack",
-  "author": "@khanghuynh92",
+  "author": "BoringCodes (https://github.com/boringcodes)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/palmerhq/backpack/issues"
+    "url": "https://github.com/boringcodes/backpack/issues"
+  },
+  "bin": {
+    "backpack": "./bin/backpack"
   },
   "dependencies": {
     "cross-spawn": "^6.0.5",
