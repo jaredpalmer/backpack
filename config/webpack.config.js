@@ -48,14 +48,15 @@ module.exports = options => {
     // Backpack's and the given user's node_modules without conflict.
     resolve: {
       extensions: ['.ts', '.js', '.json'],
-      modules: [path.resolve(__dirname, '../node_modules')],
-      // modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')]
+      // modules: [path.resolve(__dirname, '../node_modules')],
+      modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')],
       plugins: [new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, '../config/tsconfig.json')
       })]
     },
     resolveLoader: {
-      modules: [path.resolve(__dirname, '../node_modules')],
+      // modules: [path.resolve(__dirname, '../node_modules')],
+      modules: [config.userNodeModulesPath, path.resolve(__dirname, '../node_modules')],
     },
     node: {
       __filename: true,
