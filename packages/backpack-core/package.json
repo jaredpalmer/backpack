@@ -18,7 +18,7 @@
     "cross-spawn": "^6.0.5",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "json-loader": "^0.5.7",
-    "nodemon": "^1.19.1",
+    "nodemon": "^2.0.3",
     "ramda": "^0.26.1",
     "source-map-support": "^0.5.12",
     "webpack": "^4.35.0",
