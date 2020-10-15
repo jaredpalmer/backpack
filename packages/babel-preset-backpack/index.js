@@ -48,7 +48,7 @@ module.exports = function() {
           regenerator: true,
           // Resolve the Babel runtime relative to the config.
           absoluteRuntime: path.dirname(
-            require.resolve('@babel/runtime/package')
+            require.resolve('@babel/runtime/package.json')
           ),
         },
       ],
