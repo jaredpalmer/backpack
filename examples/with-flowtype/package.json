@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-flow-strip-types": "7.4.4",
+    "@babel/plugin-transform-flow-strip-types": "7.9.0",
     "backpack-core": "^0.8.4",
     "express": "^4.14.0",
     "flow-bin": "^0.101.1"
