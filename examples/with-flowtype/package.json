@@ -14,6 +14,6 @@
     "@babel/plugin-transform-flow-strip-types": "7.4.4",
     "backpack-core": "^0.8.4",
     "express": "^4.14.0",
-    "flow-bin": "^0.101.1"
+    "flow-bin": "^0.125.1"
   }
 }
