@@ -25,9 +25,7 @@ const serverConfig = userConfig.webpack
 
 process.on('SIGINT', process.exit)
 
-const serverCompiler = webpack(serverConfig)
-
-const startServer = () => {
+const startServer = serverCompiler => {
   const serverPaths = Object
     .keys(serverCompiler.options.entry)
     .map(entry => path.join(serverCompiler.options.output.path, `${entry}.js`))
@@ -35,8 +33,19 @@ const startServer = () => {
     .on('quit', process.exit)
 }
 
-const startServerOnce = once((err, stats) => {
-  if (err) return
-  startServer()
-})
-serverCompiler.watch(serverConfig.watchOptions || {}, startServerOnce)
+Promise
+  .resolve(serverConfig)
+  .then(config => webpack(config))
+  .then(serverCompiler => {
+    const startServerOnce = once((err, stats) => {
+      if (err) return
+      startServer(serverCompiler)
+    })
+
+    serverCompiler.watch(serverConfig.watchOptions || {}, startServerOnce)
+  })
+  .catch(err => {
+    console.error(err)
+
+    process.exit(1)
+  })

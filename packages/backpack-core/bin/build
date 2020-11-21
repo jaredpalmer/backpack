@@ -24,10 +24,20 @@ const serverConfig = userConfig.webpack
 
 process.on('SIGINT', process.exit)
 
-const serverCompiler = webpack(serverConfig)
+// If the user config function returns a promise, wait for it to resolve
+// before creating the webpack compiler.
+Promise.resolve(serverConfig)
+  .then(config => webpack(config))
+  .then(serverCompiler => {
+    serverCompiler.run((error, stats) => {
+      if (error || stats.hasErrors()) {
+        process.exitCode = 1
+      }
+    })
+  })
+  .catch(err => {
+    console.error(err)
 
-serverCompiler.run((error, stats) => {
-  if (error || stats.hasErrors()) {
-    process.exitCode = 1;
-  }
-})
+    console.log('Build failed.')
+    process.exit(1)
+  })
