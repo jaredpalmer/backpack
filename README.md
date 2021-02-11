@@ -3,7 +3,7 @@
 ![backpack-status](https://david-dm.org/palmerhq/backpack.svg?path=packages/backpack-core)
 [![npm version](https://badge.fury.io/js/backpack-core.svg)](https://badge.fury.io/js/backpack-core)  [![Discord](https://img.shields.io/discord/769256827007139912?label=%F0%9F%92%AC%20%20join%20us%20on%20discord&style=plastic)](https://discord.com/invite/RevdZTYMzr)
 
-Backpack is minimalistic build system for Node.js. Inspired by Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app), Zeit's [Next.js](https://github.com/zeit/next.js), and Remy's [Nodemon](https://github.com/remy/nodemon), Backpack lets you create modern Node.js apps and services with zero configuration. Backpack handles all the file-watching, live-reloading, transpiling, and bundling, so you don't have to. It comes with a few ~~conventions~~ defaults (like support for the latest JavaScript awesomeness (i.e. async/await, object rest spread, and class properties)), but everything can be customized to fit your project's needs. Best of all, you can easily add Backpack to your existing Node.js project with just a single dependency.
+Backpack is minimalistic build system for Node.js. Inspired by Facebook's [create-react-app](https://github.com/facebookincubator/create-react-app), Vercel's [Next.js](https://github.com/vercel/next.js), and Remy's [Nodemon](https://github.com/remy/nodemon), Backpack lets you create modern Node.js apps and services with zero configuration. Backpack handles all the file-watching, live-reloading, transpiling, and bundling, so you don't have to. It comes with a few ~~conventions~~ defaults (like support for the latest JavaScript awesomeness (i.e. async/await, object rest spread, and class properties)), but everything can be customized to fit your project's needs. Best of all, you can easily add Backpack to your existing Node.js project with just a single dependency.
 
 **Backpack comes with the "battery-pack included":**
 
@@ -120,7 +120,7 @@ Here's an example `.babelrc` file:
 }
 ```
 
-_Note: This works [exactly like Next.js does](https://github.com/zeit/next.js#customizing-babel-config)._
+_Note: This works [exactly like Next.js does](https://github.com/vercel/next.js#customizing-babel-config)._
 
 ### Building for Production
 
@@ -205,7 +205,7 @@ We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 
 
 * [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
 * [nyt/kyt](https://github.com/NYTimes/kyt)
-* [zeit/next.js](https://github.com/zeit/next.js)
+* [vercel/next.js](https://github.com/vercel/next.js)
 * [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
