@@ -1,6 +1,6 @@
 # babel-preset-backpack
 
-This package includes the [Babel](https://babeljs.io) preset used by [Backpack](https://github/com/palmerhq/backpack)
+This package includes the [Babel](https://babeljs.io) preset used by [Backpack](https://github.com/palmerhq/backpack)
 
 ## Usage in Backpack Projects
 
