@@ -205,7 +205,7 @@ We track V8. Since V8 has wide support for ES6, we don't transpile it. Since V8 
 
 * [jlongster/backend-with-webpack](https://github.com/jlongster/backend-with-webpack)
 * [nyt/kyt](https://github.com/NYTimes/kyt)
-* [zeit/next.js](https://github.com/zeit/next.js)
+* [vercel/next.js](https://github.com/vercel/next.js)
 * [facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 
 ## Authors
